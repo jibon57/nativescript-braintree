@@ -1,6 +1,9 @@
 import { Common } from './braintree.common';
 export declare class Braintree extends Common {
-  // define your typings manually
-  // or..
-  // take the ios or android .d.ts files and copy/paste them here
+  output: {
+        'status': string;
+        'msg': string;
+        'nonce': string;
+    };
+    startPayment(token: any): Promise<{}>;
 }
