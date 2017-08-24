@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bt_add_card">Aggiungi carta</string>
+    <string name="bt_card_details">Dati carta</string>
+    <string name="bt_card_not_accepted">Carta non accettata</string>
+    <string name="bt_confirm">Conferma</string>
+    <string name="bt_confirm_enrollment">Conferma la registrazione</string>
+    <string name="bt_country_code_invalid">Il codice Paese non è valido</string>
+    <string name="bt_descriptor_amex">Amex</string>
+    <string name="bt_descriptor_android_pay">Android Pay</string>
+    <string name="bt_descriptor_diners">Diners</string>
+    <string name="bt_descriptor_discover">Discover</string>
+    <string name="bt_descriptor_jcb">JCB</string>
+    <string name="bt_descriptor_maestro">Maestro</string>
+    <string name="bt_descriptor_mastercard">MasterCard</string>
+    <string name="bt_descriptor_pay_with_venmo">Venmo</string>
+    <string name="bt_descriptor_paypal">PayPal</string>
+    <string name="bt_descriptor_unionpay">UnionPay</string>
+    <string name="bt_descriptor_unknown">Carta di credito o di debito (bancomat)</string>
+    <string name="bt_descriptor_visa">Visa</string>
+    <string name="bt_mobile_number_invalid">Il numero di cellulare non è valido</string>
+    <string name="bt_next">Successiva</string>
+    <string name="bt_other">Altro</string>
+    <string name="bt_postal_code_invalid">Il CAP non è valido</string>
+    <string name="bt_recent">Recenti</string>
+    <string name="bt_scan_with_card_io">Fai scansione con card.io</string>
+    <string name="bt_select_payment_method">Seleziona il metodo di pagamento</string>
+    <string name="bt_sms_code">Codice tramite SMS</string>
+    <string name="bt_sms_code_required">Il codice ricevuto tramite SMS è obbligatorio</string>
+    <string name="bt_sms_code_sent_to">Immetti il codice ricevuto tramite SMS al numero %s</string>
+    <string name="bt_unionpay_mobile_number_explanation">Questa carta potrebbe richiedere la registrazione. Se necessario, verrà inviato un codice tramite SMS a questo numero.</string>
+    <string name="bt_unionpay_sms_code_invalid">Il codice ricevuto tramite SMS non è valido</string>
+    <string name="bt_use_a_different_phone_number">Usa un altro numero di telefono</string>
+</resources>

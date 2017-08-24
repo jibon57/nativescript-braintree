@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bt_add_card">Enregistrer une carte</string>
+    <string name="bt_card_details">Détails de la carte</string>
+    <string name="bt_card_not_accepted">Carte non acceptée</string>
+    <string name="bt_confirm">Confirmer</string>
+    <string name="bt_confirm_enrollment">Confirmer l\'inscription</string>
+    <string name="bt_country_code_invalid">L\'indicatif régional n\'est pas valide</string>
+    <string name="bt_descriptor_amex">Amex</string>
+    <string name="bt_descriptor_android_pay">Android Pay</string>
+    <string name="bt_descriptor_diners">Diners</string>
+    <string name="bt_descriptor_discover">Discover</string>
+    <string name="bt_descriptor_jcb">JCB</string>
+    <string name="bt_descriptor_maestro">Maestro</string>
+    <string name="bt_descriptor_mastercard">MasterCard</string>
+    <string name="bt_descriptor_pay_with_venmo">Venmo</string>
+    <string name="bt_descriptor_paypal">PayPal</string>
+    <string name="bt_descriptor_unionpay">UnionPay</string>
+    <string name="bt_descriptor_unknown">Credit or Debit Card</string>
+    <string name="bt_descriptor_visa">Visa</string>
+    <string name="bt_mobile_number_invalid">Le numéro de téléphone mobile n\'est pas valide</string>
+    <string name="bt_next">Suivant</string>
+    <string name="bt_other">Autre</string>
+    <string name="bt_postal_code_invalid">Le code postal n\'est pas valide</string>
+    <string name="bt_recent">Récent</string>
+    <string name="bt_scan_with_card_io">Lire avec card.io</string>
+    <string name="bt_select_payment_method">Sélectionner un mode de paiement</string>
+    <string name="bt_sms_code">Code de message texte</string>
+    <string name="bt_sms_code_required">Le code de message texte est obligatoire</string>
+    <string name="bt_sms_code_sent_to">Saisissez le code envoyé par message texte à %s</string>
+    <string name="bt_unionpay_mobile_number_explanation">Cette carte pourrait nécessiter une inscription. Au besoin, un code peut être envoyé à ce numéro par message texte.</string>
+    <string name="bt_unionpay_sms_code_invalid">Le code de message texte n\'est pas valide</string>
+    <string name="bt_use_a_different_phone_number">Utiliser un autre numéro de téléphone</string>
+</resources>

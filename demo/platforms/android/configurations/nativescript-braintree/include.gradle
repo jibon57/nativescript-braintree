@@ -1,0 +1,13 @@
+/* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
+
+android {
+	productFlavors {
+		"F0" {
+			dimension "nativescriptbraintree"
+		}
+	}
+}
+
+dependencies {
+    compile 'com.braintreepayments.api:drop-in:3.+'
+}

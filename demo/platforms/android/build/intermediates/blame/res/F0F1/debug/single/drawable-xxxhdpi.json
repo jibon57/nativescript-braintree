@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\Others\\Desktop\\test\\nativescript-braintree\\demo\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxxhdpi\\icon.png",
+        "source": "D:\\Others\\Desktop\\test\\nativescript-braintree\\demo\\platforms\\android\\src\\main\\res\\drawable-xxxhdpi\\icon.png"
+    },
+    {
+        "merged": "D:\\Others\\Desktop\\test\\nativescript-braintree\\demo\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxxhdpi\\background.png",
+        "source": "D:\\Others\\Desktop\\test\\nativescript-braintree\\demo\\platforms\\android\\src\\main\\res\\drawable-xxxhdpi\\background.png"
+    },
+    {
+        "merged": "D:\\Others\\Desktop\\test\\nativescript-braintree\\demo\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-xxxhdpi\\logo.png",
+        "source": "D:\\Others\\Desktop\\test\\nativescript-braintree\\demo\\platforms\\android\\src\\main\\res\\drawable-xxxhdpi\\logo.png"
+    }
+]

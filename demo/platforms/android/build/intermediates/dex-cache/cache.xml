@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-compat-25.3.1_4a97ba37ab7686b8e577722968362ffb21283016.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-core-utils-25.3.1_1d1d1f386a99e37e466728fa73c9bffcb2f3f043.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.braintreepayments\card-form\3.0.5\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="84d332165f0dcbfa439aaf67d0092d7f0342ec4e">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.braintreepayments-card-form-3.0.5_caa9e9febc28262e8f92d6b9bf467e493d1eea3c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-core-ui-25.3.1_55c010eddf8980dc2d20ffb47b06d95b7abb6d0d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.braintreepayments.api\braintree\2.4.3\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="24554d976e6f8368aed989393ea8a5f005e2f144">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.braintreepayments.api-braintree-2.4.3_c2acf49e041f3556477dc484fb0f41de19cef761.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Jibon\.gradle\caches\modules-2\files-2.1\com.paypal.android.sdk\data-collector\2.4.3\1bc657800071b93d53d228474bd75dfe766d87bf\data-collector-2.4.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1bc657800071b93d53d228474bd75dfe766d87bf">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\data-collector-2.4.3_f4a4fc9ffebfd41fc4f0cee920562f8ffbf7b0d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-recyclerview-v7-25.3.1_d05e13c9fa6916bcfbfe2dccbe628c7bd6271984.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\design\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-design-25.3.1_324793ecfacb3dd2c99a97d7976440c35144a58a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-v4-25.3.1_67edb50a8445b4f26c51b37b281014894eab42e4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-appcompat-v7-25.3.1_1b128475b8be3934712c9c84596b5f5cef302653.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\demo\runtime\unspecified\jars\libs\binding-generator.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a3e74f5f1ebe12c7cfa6591158ef298c95a5275f">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\binding-generator_722ec40c02073c1e6ec4b483b910c04c3fb652bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\transition\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-transition-25.3.1_a4ddcef6f49faa820aa02c36c1ada2ff1ac271cd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-fragment-25.3.1_f30d5c04b61fe19ae21165790634f99730493092.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-media-compat-25.3.1_1217546c620c03dd93400363597abaf93430f751.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\widgets-release\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ada15dd7aad50793dcd67b281a8eb06e80007500">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\intermediates-exploded-aar-widgets-release_ba91f4e352d885c89ecb23c4b4a07f7b73efa37b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\demo\runtime\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="30b97ea5d6274e02330dcc69943087778363c172">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\demo-runtime-unspecified_3eddf3ecec0c5fb2e77e33d1779b60ffddd171bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.paypal.android.sdk\paypal-one-touch\2.4.3\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6c392b1aaaeef033b54156c006f991c2e44d6d61">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.paypal.android.sdk-paypal-one-touch-2.4.3_76ea1612f30449e5237e7ea0369e1ca0296e6b6b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.braintreepayments.api\core\2.4.3\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="67b817708e6b02ba68e9d8cfc5df6b6a1aea0658">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.braintreepayments.api-core-2.4.3_b8cb97ebaf50d1a52c150942368932a2b7f2bc2b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-cardview-v7-25.3.1_7e5e698707935dd22d0c785ec0d155bccfeb9838.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-animated-vector-drawable-25.3.1_8ba8c9aa4e5124e5180db61d0310f2b674695f70.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\support-annotations-25.3.1_eee1b852d0baeb75aa26a3e706ff0905d3c78c36.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-vector-drawable-25.3.1_bcb7dd3a59f38683d78aec3922acb8cdfbca884e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\exploded-aar\com.braintreepayments.api\drop-in\3.0.8\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="aac5f53f100528cd5a1cefbc963ba22caf61658e">
+        <dex dex="D:\Others\Desktop\test\nativescript-braintree\demo\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.braintreepayments.api-drop-in-3.0.8_b24fdd06d9b575a04edf3d291caaf096fd66b9bd.jar" />
+    </item>
+
+</items>

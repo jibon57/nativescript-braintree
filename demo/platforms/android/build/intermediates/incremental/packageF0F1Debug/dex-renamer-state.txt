@@ -1,0 +1,4 @@
+#Fri Aug 25 00:40:29 CST 2017
+base.0=D\:\\Others\\Desktop\\test\\nativescript-braintree\\demo\\platforms\\android\\build\\intermediates\\transforms\\dex\\F0F1\\debug\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=D\:\\Others\\Desktop\\test\\nativescript-braintree\\demo\\platforms\\android\\build\\intermediates\\transforms\\dex\\F0F1\\debug\\folders\\1000\\1f\\main\\classes.dex
