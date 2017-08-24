@@ -1,6 +1,6 @@
 import { Common } from './braintree.common';
 import * as app from 'tns-core-modules/application';
-declare var com, android, java, cn;
+declare var com, android, java;
 
 export class Braintree extends Common {
 
