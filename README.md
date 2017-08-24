@@ -16,7 +16,7 @@ tns plugin add https://github.com/jibon57/nativescript-braintree
 
 ## Usage 
 	
-	```javascript
+```javascript
     import { Braintree } from 'nativescript-braintree';
     private braintree: Braintree;
 
@@ -31,8 +31,7 @@ tns plugin add https://github.com/jibon57/nativescript-braintree
        console.dir(this.braintree.output);
        alert(this.braintree.output.msg);
      })
-
-    ```)
+```
     
 ## License
 
