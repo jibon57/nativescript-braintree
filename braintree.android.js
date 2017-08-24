@@ -37,8 +37,8 @@ var Braintree = (function (_super) {
                         }, 500);
                     }
                     else if (resultCode == androidAcivity.RESULT_CANCELED) {
-                        t.output.status = 'canceled';
-                        t.output.msg = 'User has canceled payment';
+                        t.output.status = 'cancelled';
+                        t.output.msg = 'User has cancelled payment';
                         setTimeout(function () {
                             reject();
                         }, 500);
