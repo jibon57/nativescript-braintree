@@ -7,8 +7,12 @@ https://developers.braintreepayments.com/start/hello-server/php
 
 Note: Your app's package ID should be lowercase letters. If your package contains underscores, the underscores should be removed. Detail: https://developers.braintreepayments.com/guides/client-sdk/setup/android/v2#browser-switch-setup
 
-## Installation
+## Platforms
+Android
 
+iOS ( Under processing)
+
+## Installation
 
 ```javascript
 tns plugin add https://github.com/jibon57/nativescript-braintree
@@ -16,7 +20,7 @@ tns plugin add https://github.com/jibon57/nativescript-braintree
 
 ## Usage 
 	
-	```javascript
+```javascript
     import { Braintree } from 'nativescript-braintree';
     private braintree: Braintree;
 
@@ -31,8 +35,7 @@ tns plugin add https://github.com/jibon57/nativescript-braintree
        console.dir(this.braintree.output);
        alert(this.braintree.output.msg);
      })
-
-    ```)
+```
     
 ## License
 
