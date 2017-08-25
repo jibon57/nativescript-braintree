@@ -1,6 +1,13 @@
+/**
+ * @Author: jibon
+ * @Date:   2017-08-25T12:29:38+08:00
+ * @Last modified by:   jibon
+ * @Last modified time: 2017-08-25T14:43:01+08:00
+ */
+
 import { Common } from './braintree.common';
 import * as app from 'tns-core-modules/application';
-declare var com, android, java, cn;
+declare var com, android, java;
 
 export class Braintree extends Common {
 
@@ -44,8 +51,8 @@ export class Braintree extends Common {
                        
                     } else if (resultCode == androidAcivity.RESULT_CANCELED) {
                         // canceled
-                        t.output.status = 'canceled';
-                        t.output.msg = 'User has canceled payment';
+                        t.output.status = 'cancelled';
+                        t.output.msg = 'User has cancelled payment';
                         setTimeout(function(){ 
                             reject();
                         }, 500);

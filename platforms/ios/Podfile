@@ -1,0 +1,6 @@
+platform :ios, '9.0'
+
+pod 'BraintreeDropIn'
+pod 'Braintree/Apple-Pay'
+pod 'Braintree/PayPal'
+pod 'CardIO'
