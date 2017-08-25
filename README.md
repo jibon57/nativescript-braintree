@@ -7,15 +7,24 @@ https://developers.braintreepayments.com/start/hello-server/php
 
 Note: Your app's package ID should be lowercase letters. If your package contains underscores, the underscores should be removed. Detail: https://developers.braintreepayments.com/guides/client-sdk/setup/android/v2#browser-switch-setup
 
+For iOS (Important)
+===================
+For Paypal must need to follow: https://developers.braintreepayments.com/guides/client-sdk/setup/ios/v4#register-a-url-type
+
 ## Platforms
 Android
 
-iOS ( Under processing)
+iOS ( iOS 9+)
 
 ## Installation
 
 ```javascript
 tns plugin add https://github.com/jibon57/nativescript-braintree
+```
+or 
+
+```javascript
+tns plugin add nativescript-braintree
 ```
 
 ## Usage 
