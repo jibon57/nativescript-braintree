@@ -50,11 +50,7 @@ export class Braintree extends Common {
                         }, 500);
                        
                     } else if (resultCode == androidAcivity.RESULT_CANCELED) {
-<<<<<<< HEAD
                         // canceled
-=======
-                        // cancelled
->>>>>>> 4f87334f8aab6614259a0c88cedd7ea0128932a7
                         t.output.status = 'cancelled';
                         t.output.msg = 'User has cancelled payment';
                         setTimeout(function(){ 
