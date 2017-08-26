@@ -64,6 +64,13 @@ allprojects {
 
 ```
 ref: https://stackoverflow.com/questions/44500176/setting-up-gradle-for-api-26-android
+
+
+`AAPT: No resource found that matches the given name: attr 'android:keyboardNavigationCluster'.`
+
+Update sdk version and tools in gradle `compileSdkVersion 26` `buildToolsVersion "26.0.1"`
+
+ref: https://stackoverflow.com/a/45310170/1281864
     
 ## License
 
