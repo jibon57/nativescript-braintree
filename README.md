@@ -43,6 +43,27 @@ tns plugin add nativescript-braintree
        alert(this.braintree.output.msg);
      })
 ```
+
+## Common Issues:
+
+1) Error during build for Android
+
+`Could not find com.android.support:design:26.0.0.`
+
+Add following lines in your main `app.gradle` file.
+
+```
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+}
+
+```
+ref: https://stackoverflow.com/questions/44500176/setting-up-gradle-for-api-26-android
     
 ## License
 
