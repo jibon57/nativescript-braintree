@@ -19,11 +19,6 @@ iOS ( iOS 9+)
 ## Installation
 
 ```javascript
-tns plugin add https://github.com/jibon57/nativescript-braintree
-```
-or 
-
-```javascript
 tns plugin add nativescript-braintree
 ```
 
