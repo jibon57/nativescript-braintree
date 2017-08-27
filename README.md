@@ -28,20 +28,20 @@ tns plugin add nativescript-braintree
 ## Usage 
 	
 ```
-    import { Braintree } from 'nativescript-braintree';
-    private braintree: Braintree;
+import { Braintree } from 'nativescript-braintree';
+private braintree: Braintree;
 
-    this.braintree = new Braintree();
-     let token = token; //Get the token from server. https://developers.braintreepayments.com/start/hello-server/php
+this.braintree = new Braintree();
+let token = token; //Get the token from server. https://developers.braintreepayments.com/start/hello-server/php
 
-     this.braintree.startPayment(token).then(()=>{
-       console.dir(this.braintree.output);
-       alert(this.braintree.output.msg);
-       // Now you have nonce. So you can push it to server :)
-     }).catch(()=>{
-       console.dir(this.braintree.output);
-       alert(this.braintree.output.msg);
-     })
+this.braintree.startPayment(token).then(()=>{
+	console.dir(this.braintree.output);
+	alert(this.braintree.output.msg);
+	// Now you have nonce. So you can push it to server :)
+}).catch(()=>{
+	console.dir(this.braintree.output);
+	alert(this.braintree.output.msg);
+})
 ```
 
 ## Common Issues:
