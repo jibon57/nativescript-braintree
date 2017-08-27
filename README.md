@@ -12,7 +12,7 @@ Note: Your app's package ID should be lowercase letters. If your package contain
 
 For iOS (Important)
 ===================
-For Paypal must need to follow: https://developers.braintreepayments.com/guides/client-sdk/setup/ios/v4#register-a-url-type
+For Paypal & Venmo setup, must need to follow bellow (https://github.com/jibon57/nativescript-braintree#common-issues)
 
 ## Platforms
 Android
@@ -96,6 +96,82 @@ android {
 } 
 
 ```
+2) iOS problem with paypal & Venmo.
+
+If you want to use Paypal then you will need to edit your main "`Info.plist`" file to add `URL scheme` like this:
+
+```
+<key>CFBundleURLTypes</key>
+<array>
+	<dict>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>org.nativescript.demo.payments</string>
+		</array>
+	</dict>
+</array>
+
+```
+Here the string value should be same as your app id. The value can be anything like: com.yourcompany.app.payments or anything else. But we will need this value bellow.
+
+If you have plan to use `Venmo` then need to add extra this lines to you "`Info.plist`" file
+
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+	<string>com.venmo.touch.v2</string>
+</array>
+```
+
+Now open your `app.ts` or `main.ts` (for Angular) file under `app` directory. If you are using webpack for angular then it will be "main.aot.ts". Add following lines before `application.start({ moduleName: "main-page" });` or `platformNativeScriptDynamic().bootstrapModule(AppModule);` or `platformNativeScript().bootstrapModuleFactory(AppModuleNgFactory);`
+
+```
+import * as app from "application";
+declare var UIResponder, UIApplicationDelegate, BTAppSwitch;
+
+if (app.ios) {
+
+  class MyDelegate extends UIResponder {
+
+    public static ObjCProtocols = [UIApplicationDelegate];
+
+    applicationDidFinishLaunchingWithOptions(application, launchOptions): boolean {
+
+      try {
+
+        BTAppSwitch.setReturnURLScheme("org.nativescript.demo.payments"); // should be same as CFBundleURLSchemes value.
+        return true;
+
+      } catch (error) {
+        console.log(error);
+      }
+
+      return false;
+    }
+
+    applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation) {
+
+      try {
+
+        BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
+        return true;
+
+      } catch (error) {
+        console.log(error);
+      }
+
+      return false;
+    }
+  }
+
+  app.ios.delegate = MyDelegate;
+}
+```
+Example: https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/app.ts
+https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/App_Resources/iOS/Info.plist
+
+Ref: https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
+
     
 ## License
 
