@@ -152,9 +152,10 @@ if (app.ios) {
     applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation) {
 
       try {
-
-        BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
-        return true;
+	if (url.scheme == "org.nativescript.demo.payments") {
+		BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
+        	return true;
+	}
 
       } catch (error) {
         console.log(error);
