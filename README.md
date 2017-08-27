@@ -167,10 +167,14 @@ if (app.ios) {
   app.ios.delegate = MyDelegate;
 }
 ```
-Example: https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/app.ts
+Example: 
+
+https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/app.ts
+
 https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/App_Resources/iOS/Info.plist
 
-Ref: https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
+
+ref: https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
 
     
 ## License
