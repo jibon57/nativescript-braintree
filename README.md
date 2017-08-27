@@ -21,13 +21,13 @@ iOS ( iOS 9+)
 
 ## Installation
 
-```javascript
+```
 tns plugin add nativescript-braintree
 ```
 
 ## Usage 
 	
-```javascript
+```
     import { Braintree } from 'nativescript-braintree';
     private braintree: Braintree;
 
