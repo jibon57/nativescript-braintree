@@ -12,7 +12,7 @@ if (app.ios) {
 
       try {
 
-        BTAppSwitch.setReturnURLScheme("org.nativescript.test.payments");
+        BTAppSwitch.setReturnURLScheme("org.nativescript.demo.payments");
         return true;
 
       } catch (error) {
@@ -25,10 +25,10 @@ if (app.ios) {
     applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation) {
 
       try {
-
-        BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
-        return true;
-
+        if (url.scheme == "org.nativescript.demo.payments") {
+          BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
+          return true;
+        }
       } catch (error) {
         console.log(error);
       }
