@@ -96,7 +96,7 @@ android {
 } 
 
 ```
-2) iOS problem with paypal & Venmo.
+## 2) iOS problem with paypal & Venmo.
 
 If you want to use Paypal then you will need to edit your main "`Info.plist`" file to add `URL scheme` like this:
 
