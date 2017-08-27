@@ -71,6 +71,31 @@ ref: https://stackoverflow.com/questions/44500176/setting-up-gradle-for-api-26-a
 Update sdk version and tools in gradle `compileSdkVersion 26` `buildToolsVersion "26.0.1"`
 
 ref: https://stackoverflow.com/a/45310170/1281864
+
+So my `app.gradle` looks like this:
+
+```
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+}
+android {  
+  defaultConfig {  
+    generatedDensities = []
+    applicationId = "com.yourcompany.yourapp" // this should be your app id
+  }  
+  aaptOptions {  
+    additionalParameters "--no-version-vectors"  
+  }
+  compileSdkVersion 26
+  buildToolsVersion "26.0.1"
+} 
+
+```
     
 ## License
 
