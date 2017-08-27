@@ -1,6 +1,6 @@
 {
     "name": "nativescript-braintree",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Braintree payment plugin for NativeScript",
     "main": "braintree",
     "typings": "index.d.ts",
