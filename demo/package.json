@@ -30,6 +30,7 @@
     "nativescript-css-loader": "~0.26.0",
     "nativescript-dev-typescript": "libs",
     "nativescript-dev-webpack": "^0.7.3",
+    "nativescript-braintree": "^1.0.4",
     "raw-loader": "~0.5.1",
     "resolve-url-loader": "~2.1.0",
     "tns-platform-declarations": "^3.1.0",
