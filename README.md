@@ -72,7 +72,7 @@ Update sdk version and tools in gradle `compileSdkVersion 26` `buildToolsVersion
 
 ref: https://stackoverflow.com/a/45310170/1281864
 
-So my `app.gradle` looks like this (/demo/app/App_Resources/Android/app.gradle):
+So my `app.gradle` looks like this (https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/App_Resources/Android/app.gradle):
 
 ```
 allprojects {
