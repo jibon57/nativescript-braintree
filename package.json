@@ -1,6 +1,6 @@
 {
     "name": "nativescript-braintree",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Braintree payment plugin for NativeScript",
     "main": "braintree",
     "typings": "index.d.ts",
@@ -30,7 +30,9 @@
         "NativeScript",
         "JavaScript",
         "Android",
-        "iOS"
+        "iOS",
+		"Braintree",
+		"Braintree Drop In"
     ],
     "author": {
         "name": "Jibon L. Costa",

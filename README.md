@@ -1,6 +1,3 @@
-[![npm](https://img.shields.io/npm/v/nativescript-braintree.svg)](https://www.npmjs.com/package/nativescript-braintree)
-[![npm](https://img.shields.io/npm/dt/nativescript-braintree.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-braintree)
-
 # nativescript-braintree
 
 Braintree Payment NativeScript plugin for Android. Detail information here: https://developers.braintreepayments.com/start/hello-client/android/v2
@@ -28,13 +25,19 @@ tns plugin add nativescript-braintree
 ## Usage 
 	
 ```
-import { Braintree } from 'nativescript-braintree';
+import { Braintree, BrainTreeOptions } from 'nativescript-braintree';
 private braintree: Braintree;
+
+let opts :BrainTreeOptions = {
+  amount: "10.0",
+  collectDeviceData: false,
+  requestThreeDSecureVerification: false,
+}
 
 this.braintree = new Braintree();
 let token = token; //Get the token from server. https://developers.braintreepayments.com/start/hello-server/php
 
-this.braintree.startPayment(token).then(()=>{
+this.braintree.startPayment(token, opts).then(()=>{
 	console.dir(this.braintree.output);
 	alert(this.braintree.output.msg);
 	// Now you have nonce. So you can push it to server :)
@@ -98,7 +101,7 @@ android {
 ```
 2) iOS problem with paypal & Venmo.
 
-If you want to use Paypal then you will need to edit your main "`Info.plist`" file to add `URL scheme` like this:
+If you want to use Paypal & Venmo then you will need to edit your main "`Info.plist`" file to add `URL scheme` like this:
 
 ```
 <key>CFBundleURLTypes</key>
@@ -112,16 +115,7 @@ If you want to use Paypal then you will need to edit your main "`Info.plist`" fi
 </array>
 
 ```
-Here the string value should be same as your app id. The value can be anything like: com.yourcompany.app.payments or anything else. But we will need this value bellow.
-
-If you have plan to use `Venmo` then need to add extra this lines to you "`Info.plist`" file
-
-```
-<key>LSApplicationQueriesSchemes</key>
-<array>
-	<string>com.venmo.touch.v2</string>
-</array>
-```
+Here the string value should be same as your app id. The value can be anything like: com.yourcompany.app.payments or com.yourcompany.app.mypayment or anything else. But we will need this value bellow.
 
 Now open your `app.ts` or `main.ts` (for Angular) file under `app` directory. If you are using webpack for angular then it will be "main.aot.ts". Add following lines before `application.start({ moduleName: "main-page" });` or `platformNativeScriptDynamic().bootstrapModule(AppModule);` or `platformNativeScript().bootstrapModuleFactory(AppModuleNgFactory);`
 
@@ -177,7 +171,9 @@ https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/App_Resou
 
 ref: https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
 
-    
+##Credits
+Special thanks to @Pip3r4o
+
 ## License
 
 Apache License Version 2.0, January 2004

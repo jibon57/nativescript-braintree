@@ -4,6 +4,13 @@ export declare class Braintree extends Common {
         'status': string;
         'msg': string;
         'nonce': string;
+        'paymentMethodType': string;
+        'deviceInfo': string;
     };
-    startPayment(token: any): Promise<{}>;
+    startPayment(token: any, options: BrainTreeOptions): Promise<{}>;
+}
+export interface BrainTreeOptions {
+    amount: string;
+    collectDeviceData?: boolean;
+    requestThreeDSecureVerification?: boolean;
 }

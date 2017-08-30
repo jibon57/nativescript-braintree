@@ -2,28 +2,40 @@
  * @Author: jibon
  * @Date:   2017-08-25T12:29:38+08:00
  * @Last modified by:   jibon
- * @Last modified time: 2017-08-25T14:43:01+08:00
+ * @Last modified time: 2017-08-30T13:46:28+08:00
  */
 
 import { Common } from './braintree.common';
 import * as utils from "tns-core-modules/utils/utils";
 
-declare var BTDropInRequest, BTDropInController, UIApplication;
+declare var BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
 
 export class Braintree extends Common {
 
   public output = {
     'status': 'fail',
     'msg': 'unknown',
-    'nonce': ''
+    'nonce': '',
+    'paymentMethodType': '',
+    'deviceInfo': ''
   }
-  public startPayment(token) {
+  public startPayment(token: any, options: BrainTreeOptions) {
 
     let t = this;
 
     return new Promise(function(resolve, reject) {
- 
+
       let request = BTDropInRequest.alloc().init();
+
+      if (options.amount) {
+        request.amount = options.amount;
+      }
+      if (options.collectDeviceData) {
+        request.collectDeviceData = true;
+      }
+      if (options.requestThreeDSecureVerification) {
+        request.threeDSecureVerification = true;
+      }
       let dropIn = BTDropInController.alloc().initWithAuthorizationRequestHandler(token, request, function(controller, result, error) {
         if (error !== null) {
 
@@ -42,6 +54,9 @@ export class Braintree extends Common {
           t.output.status = 'success';
           t.output.msg = 'Got Payment Nonce Value';
           t.output.nonce = result.paymentMethod.nonce;
+          t.output.paymentMethodType = result.paymentMethod.type;
+          t.output.deviceInfo = PPDataCollector.collectPayPalDeviceData();
+
           setTimeout(function() {
             resolve();
           }, 500);
@@ -54,4 +69,10 @@ export class Braintree extends Common {
     })
   }
 
+}
+
+export interface BrainTreeOptions {
+  amount: string;
+  collectDeviceData?: boolean;
+  requestThreeDSecureVerification?: boolean;
 }
