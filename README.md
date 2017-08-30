@@ -173,7 +173,8 @@ https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/App_Resou
 
 ref: https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
 
-##Credits
+## Credits
+
 Special thanks to @Pip3r4o
 
 ## License
