@@ -7,9 +7,11 @@ https://developers.braintreepayments.com/start/hello-server/php
 
 Note: Your app's package ID should be lowercase letters. If your package contains underscores, the underscores should be removed. Detail: https://developers.braintreepayments.com/guides/client-sdk/setup/android/v2#browser-switch-setup
 
+For common issues check here first: https://github.com/jibon57/nativescript-braintree#common-issues
+
 For iOS (Important)
 ===================
-For Paypal & Venmo setup, must need to follow bellow (https://github.com/jibon57/nativescript-braintree#common-issues)
+For Paypal & Venmo setup, must need to follow bellow (https://github.com/jibon57/nativescript-braintree/blob/master/README.md#2-ios-problem-with-paypal--venmo)
 
 ## Platforms
 Android
@@ -99,7 +101,7 @@ android {
 } 
 
 ```
-2) iOS problem with paypal & Venmo.
+## 2) iOS problem with paypal & Venmo.
 
 If you want to use Paypal & Venmo then you will need to edit your main "`Info.plist`" file to add `URL scheme` like this:
 
