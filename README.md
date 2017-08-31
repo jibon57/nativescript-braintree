@@ -130,41 +130,36 @@ declare var UIResponder, UIApplicationDelegate, BTAppSwitch;
 
 if (app.ios) {
 
-  class MyDelegate extends UIResponder {
+    class MyDelegate extends UIResponder {
 
-    public static ObjCProtocols = [UIApplicationDelegate];
+        public static ObjCProtocols = [UIApplicationDelegate];
 
-    applicationDidFinishLaunchingWithOptions(application, launchOptions): boolean {
+        applicationDidFinishLaunchingWithOptions(application, launchOptions): boolean {
 
-      try {
+            try {
+                BTAppSwitch.setReturnURLScheme("org.nativescript.demo.payments"); // should be same as CFBundleURLSchemes value.
+                return true;
+            } catch (error) {
+                console.log(error);
+            }
+            return false;
+        }
 
-        BTAppSwitch.setReturnURLScheme("org.nativescript.demo.payments"); // should be same as CFBundleURLSchemes value.
-        return true;
+        applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation) {
 
-      } catch (error) {
-        console.log(error);
-      }
-
-      return false;
+            try {
+                if (url.scheme == "org.nativescript.demo.payments") {
+                    BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
+                    return true;
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            return false;
+        }
     }
-
-    applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation) {
-
-      try {
-	if (url.scheme == "org.nativescript.demo.payments") {
-		BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
-        	return true;
-	}
-
-      } catch (error) {
-        console.log(error);
-      }
-
-      return false;
-    }
-  }
-
-  app.ios.delegate = MyDelegate;
+    
+    app.ios.delegate = MyDelegate;
 }
 ```
 Example: 
