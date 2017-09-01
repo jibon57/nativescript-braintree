@@ -5,15 +5,13 @@ android {
 		}
 	}
 }
-buildscript {
-	repositories {
+repositories {
         jcenter()
         maven {
             url 'https://maven.google.com'
         }
     }
-	dependencies {
-		compile 'com.braintreepayments.api:drop-in:3.+'
-		compile 'io.card:android-sdk:5.+'
-	}
+dependencies {
+	compile 'com.braintreepayments.api:drop-in:3.+'
+	compile 'io.card:android-sdk:5.+'
 }
