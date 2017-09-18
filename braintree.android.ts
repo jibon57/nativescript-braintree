@@ -69,7 +69,7 @@ export class Braintree extends Common {
                         t.output.paymentMethodType = result.getPaymentMethodType().getCanonicalName();
 
                         setTimeout(function () {
-                            resolve();
+                            resolve(t.output);
                         }, 500);
 
                     } else if (resultCode == androidAcivity.RESULT_CANCELED) {
@@ -77,14 +77,14 @@ export class Braintree extends Common {
                         t.output.status = 'cancelled';
                         t.output.msg = 'User has cancelled payment';
                         setTimeout(function () {
-                            reject();
+                            reject(t.output);
                         }, 500);
                     } else {
                         // an error occurred, checked the returned exception
                         let exception = data.getSerializableExtra(com.braintreepayments.api.dropin.DropInActivity.EXTRA_ERROR);
                         t.output.msg = exception.getMessage();
                         setTimeout(function () {
-                            reject();
+                            reject(t.output);
                         }, 500);
                     }
                 }

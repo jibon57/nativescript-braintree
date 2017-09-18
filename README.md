@@ -3,7 +3,11 @@
 
 # nativescript-braintree
 
-Braintree Payment NativeScript plugin for Android. Detail information here: https://developers.braintreepayments.com/start/hello-client/android/v2
+Braintree Payment NativeScript plugin for Android & iOS (9+). 
+
+Detail information here: 
+https://developers.braintreepayments.com/start/hello-client/android/v2
+https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
 
 You will need a Server to Generate a client token. You can follow here:
 https://developers.braintreepayments.com/start/hello-server/php 
@@ -29,26 +33,26 @@ tns plugin add nativescript-braintree
 
 ## Usage 
 	
-```
-import { Braintree, BrainTreeOptions } from 'nativescript-braintree';
+``` typescript
+import { Braintree, BrainTreeOptions, BrainTreeOutput } from 'nativescript-braintree';
 private braintree: Braintree;
 
 let opts :BrainTreeOptions = {
   amount: "10.0",
-  collectDeviceData: false,
+  collectDeviceData: true,
   requestThreeDSecureVerification: false,
 }
 
 this.braintree = new Braintree();
 let token = token; //Get the token from server. https://developers.braintreepayments.com/start/hello-server/php
 
-this.braintree.startPayment(token, opts).then(()=>{
-	console.dir(this.braintree.output);
-	alert(this.braintree.output.msg);
+this.braintree.startPayment(token, opts).then((res: BrainTreeOutput)=>{
+	console.dir(res); // or this.braintree.output
+	alert(res.msg);
 	// Now you have nonce. So you can push it to server :)
-}).catch(()=>{
-	console.dir(this.braintree.output);
-	alert(this.braintree.output.msg);
+}).catch((err: BrainTreeOutput)=>{
+	console.dir(err);
+	alert(err.msg);
 })
 ```
 

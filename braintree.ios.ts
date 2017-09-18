@@ -40,14 +40,14 @@ export class Braintree extends Common {
         if (error !== null) {
 
           setTimeout(function() {
-            reject();
+            reject(t.output);
           }, 500);
 
         } else if (result.cancelled) {
           t.output.status = 'cancelled';
           t.output.msg = 'User has cancelled payment';
           setTimeout(function() {
-            reject();
+            reject(t.output);
           }, 500);
 
         } else {
@@ -58,7 +58,7 @@ export class Braintree extends Common {
           t.output.deviceInfo = PPDataCollector.collectPayPalDeviceData();
 
           setTimeout(function() {
-            resolve();
+            resolve(t.output);
           }, 500);
         }
         controller.dismissViewControllerAnimatedCompletion(true, null);
