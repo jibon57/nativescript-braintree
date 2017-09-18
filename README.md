@@ -124,7 +124,7 @@ If you want to use Paypal & Venmo then you will need to edit your main "`Info.pl
 </array>
 
 ```
-Here the string value should be same as your app id. The value can be anything like: com.yourcompany.app.payments or com.yourcompany.app.mypayment or anything else. But we will need this value bellow.
+Here the string value should be same as your app id. The value can be anything like: `com.yourcompany.app.payments` or `com.yourcompany.app.mypayment` or anything else. But we will need this value bellow.
 
 Now open your `app.ts` or `main.ts` (for Angular) file under `app` directory. If you are using webpack for angular then it will be "main.aot.ts". Add following lines before `application.start({ moduleName: "main-page" });` or `platformNativeScriptDynamic().bootstrapModule(AppModule);` or `platformNativeScript().bootstrapModuleFactory(AppModuleNgFactory);`
 
