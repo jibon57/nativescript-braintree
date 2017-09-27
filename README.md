@@ -124,7 +124,7 @@ If you want to use Paypal & Venmo then you will need to edit your app `Info.plis
 </array>
 
 ```
-Here the string value should be same as your app id. The value can be anything like: `com.yourcompany.app.payments` or `com.yourcompany.app.mypayment` or anything else. But we will need this value bellow.
+This scheme must start with your app's Bundle ID and be dedicated to Braintree app switch returns. For example, if the app bundle ID is `com.yourcompany.yourApp`, then your URL scheme could be `com.yourcompany.yourApp.payments` or `com.yourcompany.yourApp.anything`. But we will need this value bellow.
 
 Now open your `app.ts` or `main.ts` (for Angular) file under `app` directory. If you are using webpack for angular then it will be "main.aot.ts". Add following lines before `application.start({ moduleName: "main-page" });` or `platformNativeScriptDynamic().bootstrapModule(AppModule);` or `platformNativeScript().bootstrapModuleFactory(AppModuleNgFactory);`
 
