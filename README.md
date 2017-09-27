@@ -62,7 +62,7 @@ this.braintree.startPayment(token, opts).then((res: BrainTreeOutput)=>{
 
 `Could not find com.android.support:design:26.0.0.`
 
-Add following lines in your main `app.gradle` file.
+Add following lines in your main `app.gradle` file which is located `app/App_Resources/android/app.gradle`.
 
 ```
 allprojects {
@@ -110,7 +110,7 @@ android {
 ```
 ## 2) iOS problem with paypal & Venmo.
 
-If you want to use Paypal & Venmo then you will need to edit your main "`Info.plist`" file to add `URL scheme` like this:
+If you want to use Paypal & Venmo then you will need to edit your app `Info.plist` file which is located `app/App_Resources/iOS/Info.plist` to add `URL scheme` like this:
 
 ```
 <key>CFBundleURLTypes</key>
