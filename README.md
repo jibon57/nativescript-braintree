@@ -6,6 +6,7 @@
 Braintree Payment NativeScript plugin for Android & iOS (9+). 
 
 Detail information here: 
+
 https://developers.braintreepayments.com/start/hello-client/android/v2
 https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
 
