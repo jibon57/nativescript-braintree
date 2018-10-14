@@ -5,16 +5,16 @@ declare var BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
 
 export class Braintree extends Observable {
 
-    constructor() {
-        super();
-    }
-
     public output = {
         'status': 'fail',
         'msg': 'unknown',
         'nonce': '',
         'paymentMethodType': '',
         'deviceInfo': ''
+    };
+
+    constructor() {
+        super();
     }
 
     public startPayment(token: any, options: BrainTreeOptions) {
