@@ -1,0 +1,15 @@
+/* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
+
+android {
+	
+}
+repositories {
+    jcenter()
+    maven {
+        url 'https://maven.google.com'
+    }
+}
+dependencies {
+    implementation "com.braintreepayments.api:drop-in:3.6.1"
+    implementation 'io.card:android-sdk:5.+'
+}
