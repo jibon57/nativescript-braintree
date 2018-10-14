@@ -18,7 +18,7 @@ Note: Your app's package ID should be lowercase letters. If your package contain
 
 For iOS (Important)
 ===================
-For Paypal & Venmo setup, must need to follow bellow (https://github.com/jibon57/nativescript-braintree/blob/master/README.md#2-ios-problem-with-paypal--venmo)
+For Paypal & Venmo setup, must need to follow bellow (https://github.com/jibon57/nativescript-braintree/blob/master/README.md#setup-ios-paypal--venmo)
 
 ## Platforms
 Android
@@ -34,8 +34,7 @@ tns plugin add nativescript-braintree
 ## Usage 
 	
 ``` typescript
-import { Braintree, BrainTreeOptions, BrainTreeOutput } from 'nativescript-braintree';
-private braintree: Braintree;
+import { Braintree, BrainTreeOptions } from 'nativescript-braintree';
 
 let opts :BrainTreeOptions = {
   amount: "10.0",
