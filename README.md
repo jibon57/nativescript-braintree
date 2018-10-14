@@ -18,7 +18,7 @@ Note: Your app's package ID should be lowercase letters. If your package contain
 
 For iOS (Important)
 ===================
-For Paypal & Venmo setup, must need to follow bellow (https://github.com/jibon57/nativescript-braintree/blob/master/README.md#setup-ios-paypal--venmo)
+For Paypal & Venmo setup, must need to follow bellow [setup-ios-paypal--venmo](#setup-ios-paypal--venmo)
 
 ## Platforms
 Android
