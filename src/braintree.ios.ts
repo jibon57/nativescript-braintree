@@ -39,8 +39,8 @@ export class Braintree extends Observable {
                     t.notify({
                         eventName: 'error',
                         object: t
-                    })
-                })
+                    });
+                });
 
             } else if (result.cancelled) {
                 t.output.status = 'cancelled';
@@ -50,8 +50,8 @@ export class Braintree extends Observable {
                     t.notify({
                         eventName: 'cancel',
                         object: t
-                    })
-                })
+                    });
+                });
 
             } else {
 
@@ -64,8 +64,8 @@ export class Braintree extends Observable {
                         t.notify({
                             eventName: 'error',
                             object: t
-                        })
-                    })
+                        });
+                    });
                     return;
                 }
 
@@ -79,8 +79,8 @@ export class Braintree extends Observable {
                     t.notify({
                         eventName: 'success',
                         object: t
-                    })
-                })
+                    });
+                });
             }
             controller.dismissViewControllerAnimatedCompletion(true, null);
         });

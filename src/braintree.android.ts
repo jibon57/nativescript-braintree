@@ -69,9 +69,9 @@ export class Braintree extends Observable {
         let t = this;
         let androidAcivity = android.app.Activity;
 
-        if (requestCode == 4949) {
+        if (requestCode === 4949) {
 
-            if (resultCode == androidAcivity.RESULT_OK) {
+            if (resultCode === androidAcivity.RESULT_OK) {
 
                 let result = data.getParcelableExtra(com.braintreepayments.api.dropin.DropInResult.EXTRA_DROP_IN_RESULT);
                 let paymentMethodNonce = result.getPaymentMethodNonce().getNonce();
@@ -85,8 +85,8 @@ export class Braintree extends Observable {
                         t.notify({
                             eventName: 'error',
                             object: t
-                        })
-                    })
+                        });
+                    });
                     return;
                 }
 
@@ -101,11 +101,10 @@ export class Braintree extends Observable {
                     t.notify({
                         eventName: 'success',
                         object: t
-                    })
-                })
+                    });
+                });
 
-
-            } else if (resultCode == androidAcivity.RESULT_CANCELED) {
+            } else if (resultCode === androidAcivity.RESULT_CANCELED) {
                 // canceled
                 t.output.status = 'cancelled';
                 t.output.msg = 'User has cancelled payment';
@@ -114,8 +113,8 @@ export class Braintree extends Observable {
                     t.notify({
                         eventName: 'cancel',
                         object: t
-                    })
-                })
+                    });
+                });
 
             } else {
                 // an error occurred, checked the returned exception
@@ -126,8 +125,8 @@ export class Braintree extends Observable {
                     t.notify({
                         eventName: 'error',
                         object: t
-                    })
-                })
+                    });
+                });
             }
         }
 
