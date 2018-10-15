@@ -9,23 +9,21 @@ Detail information here:
 
 https://developers.braintreepayments.com/start/hello-client/android/v2
 
-https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
+https://developers.braintreepayments.com/guides/drop-in/overview/ios/v4
 
 You will need a Server to Generate a client token. You can follow here:
 https://developers.braintreepayments.com/start/hello-server/php 
 
 Note: Your app's package ID should be lowercase letters. If your package contains underscores, the underscores should be removed. Detail: https://developers.braintreepayments.com/guides/client-sdk/setup/android/v2#browser-switch-setup
 
-For common issues check here first: https://github.com/jibon57/nativescript-braintree#common-issues
-
 For iOS (Important)
 ===================
-For Paypal & Venmo setup, must need to follow bellow (https://github.com/jibon57/nativescript-braintree/blob/master/README.md#2-ios-problem-with-paypal--venmo)
+For Paypal & Venmo setup, must need to follow bellow [setup-ios-paypal--venmo](#setup-ios-paypal--venmo)
 
 ## Platforms
 Android
 
-iOS ( iOS 9+)
+iOS (9+)
 
 ## Installation
 
@@ -36,8 +34,7 @@ tns plugin add nativescript-braintree
 ## Usage 
 	
 ``` typescript
-import { Braintree, BrainTreeOptions, BrainTreeOutput } from 'nativescript-braintree';
-private braintree: Braintree;
+import { Braintree, BrainTreeOptions } from 'nativescript-braintree';
 
 let opts :BrainTreeOptions = {
   amount: "10.0",
@@ -45,72 +42,30 @@ let opts :BrainTreeOptions = {
   requestThreeDSecureVerification: false,
 }
 
-this.braintree = new Braintree();
 let token = token; //Get the token from server. https://developers.braintreepayments.com/start/hello-server/php
 
-this.braintree.startPayment(token, opts).then((res: BrainTreeOutput)=>{
-	console.dir(res); // or this.braintree.output
-	alert(res.msg);
-	// Now you have nonce. So you can push it to server :)
-}).catch((err: BrainTreeOutput)=>{
-	console.dir(err);
-	alert(err.msg);
+let braintree = new Braintree();
+
+braintree.startPayment(token, opt);
+
+braintree.on("success", function (res) {
+    let output = res.object.get("output");
+    console.dir(output);
+})
+
+braintree.on("cancel", function (res) {
+    let output = res.object.get("output");
+    console.dir(output);
+})
+
+braintree.on("error", function (res) {
+    let output = res.object.get("output");
+    console.dir(output);
 })
 ```
 
-## Common Issues:
 
-1) Error during build for Android
-
-`Could not find com.android.support:design:26.0.0.`
-
-Add following lines in your main `app.gradle` file which is located `app/App_Resources/android/app.gradle`.
-
-```
-allprojects {
-    repositories {
-        jcenter()
-        maven {
-            url 'https://maven.google.com'
-        }
-    }
-}
-
-```
-ref: https://stackoverflow.com/questions/44500176/setting-up-gradle-for-api-26-android
-
-
-`AAPT: No resource found that matches the given name: attr 'android:keyboardNavigationCluster'.`
-
-Update sdk version and tools in gradle `compileSdkVersion 26` `buildToolsVersion "26.0.1"`
-
-ref: https://stackoverflow.com/a/45310170/1281864
-
-So my `app.gradle` looks like this (https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/App_Resources/Android/app.gradle):
-
-```
-allprojects {
-    repositories {
-        jcenter()
-        maven {
-            url 'https://maven.google.com'
-        }
-    }
-}
-android {  
-  defaultConfig {  
-    generatedDensities = []
-    applicationId = "com.yourcompany.yourapp" // this should be your app id
-  }  
-  aaptOptions {  
-    additionalParameters "--no-version-vectors"  
-  }
-  compileSdkVersion 26
-  buildToolsVersion "26.0.1"
-} 
-
-```
-## 2) iOS problem with paypal & Venmo.
+## Setup iOS paypal & Venmo.
 
 If you want to use Paypal & Venmo then you will need to edit your app `Info.plist` file which is located `app/App_Resources/iOS/Info.plist` to add `URL scheme` like this:
 
@@ -126,7 +81,7 @@ If you want to use Paypal & Venmo then you will need to edit your app `Info.plis
 </array>
 
 ```
-This scheme must start with your app's Bundle ID and be dedicated to Braintree app switch returns. For example, if the app bundle ID is `com.yourcompany.yourapp`, then your URL scheme could be `com.yourcompany.yourapp.payments` or `com.yourcompany.yourapp.anything`. Above I used `org.nativescript.demo.payments` because app's bundle ID is `org.nativescript.demo`. But we will need this value bellow.
+This scheme must start with your app's Bundle ID and be dedicated to Braintree app switch returns. For example, if the app bundle ID is `com.yourcompany.yourapp`, then your URL scheme could be `com.yourcompany.yourapp.payments` or `com.yourcompany.yourapp.anything`. Above I used `org.nativescript.demo.payments` because app's bundle ID is `org.nativescript.demo` & we will need this value bellow.
 
 Now open your `app.ts` or `main.ts` (for Angular) file under `app` directory. If you are using webpack for angular then it will be `main.aot.ts`. Add following lines before `application.start({ moduleName: "main-page" });` or `platformNativeScriptDynamic().bootstrapModule(AppModule);` or `platformNativeScript().bootstrapModuleFactory(AppModuleNgFactory);`
 

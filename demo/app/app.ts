@@ -1,8 +1,8 @@
-import "./bundle-config";
-import * as app from "application";
+﻿import * as application from 'tns-core-modules/application';
+
 declare var UIResponder, UIApplicationDelegate, BTAppSwitch;
 
-if (app.ios) {
+if (application.ios) {
 
     class MyDelegate extends UIResponder {
 
@@ -25,7 +25,7 @@ if (app.ios) {
         applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation) {
 
             try {
-                if (url.scheme == "org.nativescript.demo.payments") {
+                if (url.scheme === "org.nativescript.demo.payments") {
                     BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
                     return true;
                 }
@@ -37,6 +37,7 @@ if (app.ios) {
         }
     }
 
-    app.ios.delegate = MyDelegate;
+    application.ios.delegate = MyDelegate;
 }
-app.start({ moduleName: "main-page" });
+
+application.start({ moduleName: "main-page" });
