@@ -27,8 +27,14 @@ iOS (9+)
 
 ## Installation
 
+NativeScript 5.X
 ```
 tns plugin add nativescript-braintree
+```
+
+NativeScript 4.X
+```
+tns plugin add nativescript-braintree@2.0.1
 ```
 
 ## Usage 

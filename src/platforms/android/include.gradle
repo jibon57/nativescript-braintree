@@ -9,6 +9,6 @@ repositories {
     }
 }
 dependencies {
-    implementation "com.braintreepayments.api:drop-in:3.6.1"
+    implementation "com.braintreepayments.api:drop-in:3.+"
     implementation 'io.card:android-sdk:5.+'
 }
