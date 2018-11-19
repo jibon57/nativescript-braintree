@@ -1,7 +1,45 @@
 import { Observable } from 'tns-core-modules/data/observable';
 import * as utils from "tns-core-modules/utils/utils";
+import { getAppDelegate } from "./getappdelegate";
 
-declare var BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
+declare const BTAppSwitch, BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
+
+export const appDelegate = getAppDelegate();
+
+// enableMultipleOverridesFor method copied from https://github.com/hypery2k/nativescript-urlhandler/blob/45fa7d83d59897db8f3b5077432a154ae542a69e/src/urlhandler.ios.ts#L7
+
+export function enableMultipleOverridesFor(classRef, methodName, nextImplementation) {
+    const currentImplementation = classRef.prototype[methodName];
+    classRef.prototype[methodName] = function () {
+        const result = currentImplementation && currentImplementation.apply(currentImplementation, Array.from(arguments));
+        return nextImplementation.apply(nextImplementation, Array.from(arguments).concat([result]));
+    };
+}
+
+export function setupBraintreeAppDeligate(urlScheme) {
+
+    enableMultipleOverridesFor(appDelegate, 'applicationDidFinishLaunchingWithOptions', function (application, launchOptions) {
+        try {
+            BTAppSwitch.setReturnURLScheme(urlScheme);
+            return true;
+        } catch (error) {
+            console.log(error);
+        }
+        return false;
+    });
+
+    enableMultipleOverridesFor(appDelegate, 'applicationOpenURLSourceApplicationAnnotation', function (application, url, sourceApplication, annotation) {
+        try {
+            if (url.scheme == urlScheme) {
+                BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
+                return true;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        return false;
+    })
+}
 
 export class Braintree extends Observable {
 
