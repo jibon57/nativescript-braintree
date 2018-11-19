@@ -42,6 +42,33 @@ export function enableMultipleOverridesFor(classRef, methodName, nextImplementat
     };
 }
 
+export function setupAppDeligate(urlScheme) {
+
+    let appDelegate = getAppDelegate();
+
+    enableMultipleOverridesFor(appDelegate, 'applicationDidFinishLaunchingWithOptions', function (application, launchOptions) {
+        try {
+            BTAppSwitch.setReturnURLScheme(urlScheme);
+            return true;
+        } catch (error) {
+            console.log(error);
+        }
+        return false;
+    });
+
+    enableMultipleOverridesFor(appDelegate, 'applicationOpenURLSourceApplicationAnnotation', function (application, url, sourceApplication, annotation) {
+        try {
+            if (url.scheme == urlScheme) {
+                BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
+                return true;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        return false;
+    })
+}
+
 
 /*
 The MIT License (MIT)

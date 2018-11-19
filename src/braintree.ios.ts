@@ -1,33 +1,11 @@
 import { Observable } from 'tns-core-modules/data/observable';
 import * as utils from "tns-core-modules/utils/utils";
+const setupAppDeligate = require('./getappdelegate').setupAppDeligate;
 
-const appDelegate = require('./getappdelegate').getAppDelegate();
-const enableMultipleOverridesFor = require('./getappdelegate').enableMultipleOverridesFor;
-
-declare const BTAppSwitch, BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
+declare const BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
 
 export function setupBraintreeAppDeligate(urlScheme) {
-    enableMultipleOverridesFor(appDelegate, 'applicationDidFinishLaunchingWithOptions', function (application, launchOptions) {
-        try {
-            BTAppSwitch.setReturnURLScheme(urlScheme);
-            return true;
-        } catch (error) {
-            console.log(error);
-        }
-        return false;
-    });
-
-    enableMultipleOverridesFor(appDelegate, 'applicationOpenURLSourceApplicationAnnotation', function (application, url, sourceApplication, annotation) {
-        try {
-            if (url.scheme == urlScheme) {
-                BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
-                return true;
-            }
-        } catch (error) {
-            console.log(error);
-        }
-        return false;
-    })
+    setupAppDeligate(urlScheme);
 }
 
 export class Braintree extends Observable {
