@@ -58,7 +58,7 @@ export function setupAppDeligate(urlScheme) {
 
     enableMultipleOverridesFor(appDelegate, 'applicationOpenURLSourceApplicationAnnotation', function (application, url, sourceApplication, annotation) {
         try {
-            if (url.scheme == urlScheme) {
+            if (url.scheme === urlScheme) {
                 BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
                 return true;
             }
@@ -66,7 +66,7 @@ export function setupAppDeligate(urlScheme) {
             console.log(error);
         }
         return false;
-    })
+    });
 }
 
 
