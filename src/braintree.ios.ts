@@ -1,7 +1,12 @@
 import { Observable } from 'tns-core-modules/data/observable';
 import * as utils from "tns-core-modules/utils/utils";
+const setupAppDeligate = require('./getappdelegate').setupAppDeligate;
 
-declare var BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
+declare const BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
+
+export function setupBraintreeAppDeligate(urlScheme) {
+    setupAppDeligate(urlScheme);
+}
 
 export class Braintree extends Observable {
 

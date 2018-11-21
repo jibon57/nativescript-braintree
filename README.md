@@ -89,44 +89,14 @@ If you want to use Paypal & Venmo then you will need to edit your app `Info.plis
 ```
 This scheme must start with your app's Bundle ID and be dedicated to Braintree app switch returns. For example, if the app bundle ID is `com.yourcompany.yourapp`, then your URL scheme could be `com.yourcompany.yourapp.payments` or `com.yourcompany.yourapp.anything`. Above I used `org.nativescript.demo.payments` because app's bundle ID is `org.nativescript.demo` & we will need this value bellow.
 
-Now open your `app.ts` or `main.ts` (for Angular) file under `app` directory. If you are using webpack for angular then it will be `main.aot.ts`. Add following lines before `application.start({ moduleName: "main-page" });` or `platformNativeScriptDynamic().bootstrapModule(AppModule);` or `platformNativeScript().bootstrapModuleFactory(AppModuleNgFactory);`
+Now open your `app.ts` or `main.ts` (for Angular) file. Add following lines before `application.start({ moduleName: "main-page" });` or `platformNativeScriptDynamic().bootstrapModule(AppModule);` (Angular).
 
 ```
 import * as app from "application";
-declare var UIResponder, UIApplicationDelegate, BTAppSwitch;
+import { setupBraintreeAppDeligate } from "nativescript-braintree"
 
 if (app.ios) {
-
-    class MyDelegate extends UIResponder {
-
-        public static ObjCProtocols = [UIApplicationDelegate];
-
-        applicationDidFinishLaunchingWithOptions(application, launchOptions): boolean {
-
-            try {
-                BTAppSwitch.setReturnURLScheme("org.nativescript.demo.payments"); // should be same as CFBundleURLSchemes value.
-                return true;
-            } catch (error) {
-                console.log(error);
-            }
-            return false;
-        }
-
-        applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation) {
-
-            try {
-                if (url.scheme == "org.nativescript.demo.payments") {
-                    BTAppSwitch.handleOpenURLSourceApplication(url, sourceApplication);
-                    return true;
-                }
-            } catch (error) {
-                console.log(error);
-            }
-            return false;
-        }
-    }
-    
-    app.ios.delegate = MyDelegate;
+    setupBraintreeAppDeligate("org.nativescript.demo.payments");
 }
 ```
 Example: 
