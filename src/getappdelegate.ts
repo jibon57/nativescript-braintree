@@ -3,6 +3,8 @@ declare const BTAppSwitch;
 
 /**
  * This file has been copied from nativescript-urlhandler
+ * MIT License
+ * Copyright (c) 2016 Martin Reinhardt
  * https://github.com/hypery2k/nativescript-urlhandler/blob/45fa7d83d59897db8f3b5077432a154ae542a69e/src/getappdelegate.ts
  */
 
@@ -32,7 +34,12 @@ export function getAppDelegate() {
     return application.ios.delegate;
 }
 
-// copied from https://github.com/hypery2k/nativescript-urlhandler/blob/45fa7d83d59897db8f3b5077432a154ae542a69e/src/urlhandler.ios.ts#L7
+/**
+ * This method has been copied from nativescript-urlhandler
+ * MIT License
+ * Copyright (c) 2016 Martin Reinhardt
+ * https://github.com/hypery2k/nativescript-urlhandler/blob/45fa7d83d59897db8f3b5077432a154ae542a69e/src/urlhandler.ios.ts#L7
+ */
 
 export function enableMultipleOverridesFor(classRef, methodName, nextImplementation) {
     const currentImplementation = classRef.prototype[methodName];
