@@ -3,7 +3,7 @@
 
 # nativescript-braintree
 
-Braintree Payment NativeScript plugin for Android & iOS (9+). 
+Braintree Payment NativeScript plugin for Android & iOS (9+). Works with NS 6+
 
 Detail information here: 
 
@@ -70,6 +70,103 @@ braintree.on("error", function (res) {
 })
 ```
 
+## Set up Apple Pay
+
+If you want to use Apple Pay there are a few steps you must complete.
+
+1. Set up your Apple Pay Certificate in Braintree and in the Apple Developer Portal
+    Follow the configuration steps here: https://developers.braintreepayments.com/guides/apple-pay/configuration/ios/v4
+    
+2. To make it easier to work with you should add `tns-platform-declarations` to your project. Here is a video guide showing how to do that: https://www.youtube.com/watch?v=vz7qfpeghFs
+    
+3. Populate `applePayPaymentRequest` property on the `BrainTreeOptions` class
+
+```typescript
+import { ApplePayLineItem } from '../../src';
+
+let applePayPaymentRequestObj = PKPaymentRequest.alloc().init();
+
+let lineItemsArray = [];
+
+let applePayLineItems = [
+            {
+                label: "Service",
+                amount: 0.02
+            },
+            {
+                label: "Delivery",
+                amount: 0.03
+            }
+        ];
+
+
+let totalLineItemLabel = "Company Name" // Typically the company name
+let totalPrice = 0.02;
+
+// If you want to show an itemized Apple Pay prompt.
+if (applePayLineItems.length > 1) {
+    applePayLineItems.map((lineItem: ApplePayLineItem) => {
+	let pkSummaryItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(lineItem.label, NSDecimalNumber.decimalNumberWithString(lineItem.amount.toString()));
+	totalPrice += lineItem.amount;
+	lineItemsArray.push(pkSummaryItem);
+    });
+
+    let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
+    lineItemsArray.push(pkSummaryTotalItem);
+} else {
+    // If you don't want an itemized Apple Pay prompt
+    let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
+    lineItemsArray.push(pkSummaryTotalItem);
+}
+
+let paymentSummaryArray = NSArray.alloc().initWithArray(lineItemsArray);
+
+applePayPaymentRequestObj.paymentSummaryItems = paymentSummaryArray as NSArray<PKPaymentSummaryItem>;
+applePayPaymentRequestObj.countryCode = "US";
+applePayPaymentRequestObj.currencyCode = "USD";
+applePayPaymentRequestObj.merchantIdentifier = "YOUR_MERCHANT_IDENTIFIER";
+applePayPaymentRequestObj.merchantCapabilities = PKMerchantCapability.Capability3DS;
+
+// Configure your allowed networks
+let networksArray = NSArray.alloc().initWithArray([
+    "AmEx",
+    "Discover",
+    "MasterCard",
+    "Visa",
+]);
+
+applePayPaymentRequestObj.supportedNetworks = networksArray as NSArray<string>;
+
+let opt: BrainTreeOptions = {
+    amount: "0.01", // This is ignored if Apple Pay is the selected payment method
+    collectDeviceData: false,
+    requestThreeDSecureVerification: true,
+    // Apple Pay payment request
+    applePayPaymentRequest: applePayPaymentRequestObj,
+};
+```
+
+### Itemized Apple Pay
+![Itemized Apple Pay screenshot](/readme-images/itemized-apple-pay.png)
+
+
+### Summary Apple Pay
+![Summary Apple Pay screenshot](/readme-images/summary-apple-pay.png)
+
+
+## Setup Google Pay
+In order to utilize the Google Pay services you must ensure you have set up the required meta tag in your AndroidManifest.xml detailed here: https://developers.braintreepayments.com/guides/google-pay/client-side/android/v3
+
+Also be sure to provide the a currency code in the BrainTreeOptions, as this is required.
+
+``` typescript    
+let opts: BrainTreeOptions = {
+            amount: "0.01",
+            collectDeviceData: false,
+            requestThreeDSecureVerification: true,
+            currencyCode: "USD"
+        };
+```
 
 ## Setup iOS paypal & Venmo.
 
@@ -110,7 +207,8 @@ ref: https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
 
 ## Credits
 
-Special thanks to @Pip3r4o
+Special thanks to @Pip3r4o, @TylerBlakeLOU, @SamGosman
+
 
 ## License
 

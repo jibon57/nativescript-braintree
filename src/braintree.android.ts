@@ -3,6 +3,9 @@ import * as app from 'tns-core-modules/application';
 
 declare const com;
 const DropInRequest = com.braintreepayments.api.dropin.DropInRequest;
+const GooglePaymentRequest = com.braintreepayments.api.models.GooglePaymentRequest;
+const TransactionInfo = com.google.android.gms.wallet.TransactionInfo;
+const WalletConstants = com.google.android.gms.wallet.WalletConstants;
 
 export class Braintree extends Observable {
 
@@ -46,6 +49,7 @@ export class Braintree extends Observable {
             requestThreeDSecureVerificationMethod.invoke(dropInRequest, [true]);
         }
 
+        t.enableGooglePay(dropInRequest, options);
         clientTokenMethod.invoke(dropInRequest, [token]);
         let dIRIntent = getIntentMethod.invoke(dropInRequest, [activity]);
         this.callIntent(dIRIntent);
@@ -53,7 +57,6 @@ export class Braintree extends Observable {
 
     private callIntent(intent) {
         let t = this;
-
         app.android.foregroundActivity.startActivityForResult(intent, 4949);
         app.android.on(app.AndroidApplication.activityResultEvent, onResult);
 
@@ -68,7 +71,6 @@ export class Braintree extends Observable {
 
         let t = this;
         let androidAcivity = android.app.Activity;
-
         if (requestCode === 4949) {
 
             if (resultCode === androidAcivity.RESULT_OK) {
@@ -119,6 +121,7 @@ export class Braintree extends Observable {
             } else {
                 // an error occurred, checked the returned exception
                 let exception = data.getSerializableExtra(com.braintreepayments.api.dropin.DropInActivity.EXTRA_ERROR);
+                console.log(exception.getMessage())
                 t.output.msg = exception.getMessage();
 
                 setTimeout(function () {
@@ -131,11 +134,27 @@ export class Braintree extends Observable {
         }
 
     }
+
+    private enableGooglePay(dropInRequest, options: BrainTreeOptions): void {
+
+        let googlePaymentRequest = new GooglePaymentRequest()
+            .transactionInfo(TransactionInfo.newBuilder()
+                .setTotalPrice(options.amount)
+                .setTotalPriceStatus(WalletConstants.TOTAL_PRICE_STATUS_FINAL)
+                .setCurrencyCode(options.currencyCode)
+                .build())
+            .billingAddressRequired(true);;
+
+        dropInRequest.googlePaymentRequest(googlePaymentRequest);
+    }
+
 }
 
 export interface BrainTreeOptions {
     amount: string;
     collectDeviceData?: boolean;
     requestThreeDSecureVerification?: boolean;
+    //required for google pay
+    currencyCode?: string;
 }
 

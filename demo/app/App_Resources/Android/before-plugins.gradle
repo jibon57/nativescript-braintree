@@ -1,0 +1,9 @@
+// project.ext.googlePlayServicesVersion = "15.0.1"
+
+
+android {
+     project.ext { 
+          supportVersion = "28.+"
+          googlePlayServicesVersion = "16.+"
+     }
+} 

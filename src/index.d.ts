@@ -17,7 +17,20 @@ export declare class Braintree extends Observable {
 }
 
 export interface BrainTreeOptions {
+  /**
+    * Amount is ignored when using Apple Pay
+    */
   amount: string;
   collectDeviceData?: boolean;
   requestThreeDSecureVerification?: boolean;
+  applePayPaymentRequest?: PKPaymentRequest;
+  /**
+    * currencyCode is required for Google Pay
+    */
+  currencyCode?: string;
+}
+
+export interface ApplePayLineItem {
+  label: string;
+  amount: number;
 }

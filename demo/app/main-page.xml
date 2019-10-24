@@ -1,6 +1,6 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
   xmlns:ui="nativescript-braintree">
   <StackLayout class="p-20">
-     <Button tap="{{brainTreePayment}}" text="Pay"/>
+     <Button tap="{{brainTreePayment}}" text="Pay" fontSize="30" height="100" width="200" backgroundColor="#cccccc"/>
   </StackLayout>
 </Page>
