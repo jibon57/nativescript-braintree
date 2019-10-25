@@ -95,8 +95,6 @@ import { ApplePayLineItem } from '../../src';
 
 let applePayPaymentRequestObj = PKPaymentRequest.alloc().init();
 
-let lineItemsArray = [];
-
 // If you want to show an itemized Apple Pay prompt.
 let applePayLineItems = [
             {
@@ -112,6 +110,8 @@ let applePayLineItems = [
 		amount: 0.05
 	    }
         ];
+
+let lineItemsArray = [];
 
 applePayLineItems.map((lineItem: ApplePayLineItem) => {
 
@@ -166,6 +166,8 @@ let applePayLineItems = [
 		amount: 0.02
 	    }
         ];
+
+let lineItemsArray = [];
 
 applePayLineItems.map((lineItem: ApplePayLineItem) => {
 
