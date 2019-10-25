@@ -97,8 +97,6 @@ let applePayPaymentRequestObj = PKPaymentRequest.alloc().init();
 
 let lineItemsArray = [];
 
-
-
 // If you want to show an itemized Apple Pay prompt.
 let applePayLineItems = [
             {
@@ -108,26 +106,20 @@ let applePayLineItems = [
             {
                 label: "Delivery",
                 amount: 0.03
-            }
+            },
+	    {
+	    	label: "Company Name",
+		amount: 0.05
+	    }
         ];
 
+applePayLineItems.map((lineItem: ApplePayLineItem) => {
 
-if (applePayLineItems.length > 1) {
-    applePayLineItems.map((lineItem: ApplePayLineItem) => {
-	let pkSummaryItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(lineItem.label, NSDecimalNumber.decimalNumberWithString(lineItem.amount.toString()));
-	totalPrice += lineItem.amount;
-	lineItemsArray.push(pkSummaryItem);
-    });
+let pkSummaryItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(lineItem.label, NSDecimalNumber.decimalNumberWithString(lineItem.amount.toString()));
 
+lineItemsArray.push(pkSummaryItem);
+});
 
-// Summary item, we will append this to the end of the array
-let totalLineItemLabel = "Company Name" // Typically the company name
-let totalPrice = 0.02;
-
-let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
-
-lineItemsArray.push(pkSummaryTotalItem);
-}
 
 let paymentSummaryArray = NSArray.alloc().initWithArray(lineItemsArray);
 
@@ -167,16 +159,21 @@ import { ApplePayLineItem } from '../../src';
 
 let applePayPaymentRequestObj = PKPaymentRequest.alloc().init();
 
-let lineItemsArray = [];
+// If you want to show a summary Apple Pay prompt.
+let applePayLineItems = [
+	    {
+	    	label: "Company Name",
+		amount: 0.02
+	    }
+        ];
 
-// Summary item, we will append this to the end of the array
-let totalLineItemLabel = "Company Name" // Typically the company name
-let totalPrice = 0.02;
+applePayLineItems.map((lineItem: ApplePayLineItem) => {
 
-    // If you don't want an itemized Apple Pay prompt
-let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
+let pkSummaryItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(lineItem.label, NSDecimalNumber.decimalNumberWithString(lineItem.amount.toString()));
 
-lineItemsArray.push(pkSummaryTotalItem);
+lineItemsArray.push(pkSummaryItem);
+});
+
 
 let paymentSummaryArray = NSArray.alloc().initWithArray(lineItemsArray);
 
