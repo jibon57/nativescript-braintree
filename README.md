@@ -27,7 +27,7 @@ iOS (9+)
 
 ## Installation
 
-NativeScript 5.X
+NativeScript 5.X+
 ```
 tns plugin add nativescript-braintree
 ```
@@ -72,13 +72,15 @@ braintree.on("error", function (res) {
 
 ## Set up Apple Pay
 
-If you want to use Apple Pay there are a few steps you must complete.
+If you want to use Apple Pay there are a few steps you __must__ complete.
 
 1. Set up your Apple Pay Certificate in Braintree and in the Apple Developer Portal
     Follow the configuration steps here: https://developers.braintreepayments.com/guides/apple-pay/configuration/ios/v4
     
-2. To make it easier to work with you should add `tns-platform-declarations` to your project. Here is a video guide showing how to do that: https://www.youtube.com/watch?v=vz7qfpeghFs
-    
+2. To prevent compiler errors and to provide intellisense when working with native iOS classes add `tns-platform-declarations` to your project. Here is a video guide showing how to do that: https://www.youtube.com/watch?v=vz7qfpeghFs
+
+__Note:__ It was implemented this way so that the developer has more customization capabilities rather than putting some of this logic inside the plugin which might be harder for authors to modify if needed.
+
 3. Populate `applePayPaymentRequest` property on the `BrainTreeOptions` class
 
 ```typescript
