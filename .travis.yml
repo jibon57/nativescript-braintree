@@ -55,6 +55,6 @@ before_install:
     - sudo pip install six
 
 install:
-    - echo no | npm install -g nativescript@5.4.2
+    - echo no | npm install -g nativescript@5.4.0
     - tns usage-reporting disable
     - tns error-reporting disable
