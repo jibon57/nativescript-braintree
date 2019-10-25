@@ -23,11 +23,11 @@ export class HelloWorldModel extends Observable {
         };
 
         if (applicationModule.ios) {
-            // If doing ApplePay 
+            // If doing ApplePay
             let applePayLineItems = this.getApplePayLineItemsSummary();
 
             let applePayPaymentRequestObj = this.getApplePayPaymentRequestObj(applePayLineItems);
-            opts.applePayPaymentRequest = applePayPaymentRequestObj
+            opts.applePayPaymentRequest = applePayPaymentRequestObj;
         }
 
 
@@ -40,11 +40,9 @@ export class HelloWorldModel extends Observable {
         braintree.on("success", (res) => {
 
             let output = res.object.get("output");
-            console.dir(output)
+            console.dir(output);
 
         });
-
-
 
         braintree.on("cancel", (res) => {
             console.log(`braintree cancellled`);
@@ -52,7 +50,7 @@ export class HelloWorldModel extends Observable {
 
         braintree.on("error", (res) => {
             let output = res.object.get("output");
-            console.dir(output)
+            console.dir(output);
         });
 
 
@@ -65,25 +63,10 @@ export class HelloWorldModel extends Observable {
 
         let lineItemsArray = [];
 
-        let totalLineItemLabel = "Company Name" // Typically the company name
-
-        let totalPrice = 0;
-
-        // If you want to show an itemized Apple Pay prompt.
-        if (applePayLineItems.length > 1) {
-            applePayLineItems.map((lineItem: ApplePayLineItem) => {
-                let pkSummaryItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(lineItem.label, NSDecimalNumber.decimalNumberWithString(lineItem.amount.toString()));
-                totalPrice += lineItem.amount;
-                lineItemsArray.push(pkSummaryItem);
-            });
-
-            let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
-            lineItemsArray.push(pkSummaryTotalItem);
-        } else {
-            // If you don't want an itemized Apple Pay prompt
-            let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(applePayLineItems[0].label, NSDecimalNumber.decimalNumberWithString(applePayLineItems[0].amount.toString()));
-            lineItemsArray.push(pkSummaryTotalItem);
-        }
+        applePayLineItems.map((lineItem: ApplePayLineItem) => {
+            let pkSummaryItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(lineItem.label, NSDecimalNumber.decimalNumberWithString(lineItem.amount.toString()));
+            lineItemsArray.push(pkSummaryItem);
+        });
 
         let paymentSummaryArray = NSArray.alloc().initWithArray(lineItemsArray);
 
@@ -124,6 +107,10 @@ export class HelloWorldModel extends Observable {
             {
                 label: "Delivery",
                 amount: 0.03
+            },
+            {
+                label: "Company Name",
+                amount: 0.05
             }
         ];
     }
