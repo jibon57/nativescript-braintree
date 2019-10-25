@@ -121,7 +121,6 @@ export class Braintree extends Observable {
             } else {
                 // an error occurred, checked the returned exception
                 let exception = data.getSerializableExtra(com.braintreepayments.api.dropin.DropInActivity.EXTRA_ERROR);
-                console.log(exception.getMessage())
                 t.output.msg = exception.getMessage();
 
                 setTimeout(function () {
@@ -143,7 +142,7 @@ export class Braintree extends Observable {
                 .setTotalPriceStatus(WalletConstants.TOTAL_PRICE_STATUS_FINAL)
                 .setCurrencyCode(options.currencyCode)
                 .build())
-            .billingAddressRequired(true);;
+            .billingAddressRequired(true);
 
         dropInRequest.googlePaymentRequest(googlePaymentRequest);
     }
@@ -154,7 +153,7 @@ export interface BrainTreeOptions {
     amount: string;
     collectDeviceData?: boolean;
     requestThreeDSecureVerification?: boolean;
-    //required for google pay
+    // Required for google pay
     currencyCode?: string;
 }
 

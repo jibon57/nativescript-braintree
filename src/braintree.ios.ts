@@ -73,8 +73,8 @@ export class Braintree extends Observable {
                 }
 
 
-                //apple pay implementation
-                if (result.paymentDescription == "Apple Pay") {
+                // Apple Pay implementation
+                if (result.paymentDescription === "Apple Pay") {
 
                     let request = PKPaymentRequest.alloc().init();
 
