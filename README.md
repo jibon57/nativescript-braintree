@@ -81,7 +81,14 @@ If you want to use Apple Pay there are a few steps you __must__ complete.
 
 __Note:__ It was implemented this way so that the developer has more customization capabilities rather than putting some of this logic inside the plugin which might be harder for authors to modify if needed.
 
-3. Populate `applePayPaymentRequest` property on the `BrainTreeOptions` class
+3. Populate `applePayPaymentRequest` property on the `BrainTreeOptions` class depending on how you want the Apple Pay prompt to look.
+
+__Note:__ The apple pay prompt will make the last item in the `paymentSummaryItems` show like a total. Therefore you can just add the summary/total item manually or put a summary/total item at the end of the `applePayLineItems` array.
+
+### Itemized Apple Pay
+![Itemized Apple Pay screenshot](/readme-images/itemized-apple-pay.png)
+
+If you want an itemized prompt like above, do the following:
 
 ```typescript
 import { ApplePayLineItem } from '../../src';
@@ -90,6 +97,9 @@ let applePayPaymentRequestObj = PKPaymentRequest.alloc().init();
 
 let lineItemsArray = [];
 
+
+
+// If you want to show an itemized Apple Pay prompt.
 let applePayLineItems = [
             {
                 label: "Service",
@@ -102,10 +112,6 @@ let applePayLineItems = [
         ];
 
 
-let totalLineItemLabel = "Company Name" // Typically the company name
-let totalPrice = 0.02;
-
-// If you want to show an itemized Apple Pay prompt.
 if (applePayLineItems.length > 1) {
     applePayLineItems.map((lineItem: ApplePayLineItem) => {
 	let pkSummaryItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(lineItem.label, NSDecimalNumber.decimalNumberWithString(lineItem.amount.toString()));
@@ -113,12 +119,14 @@ if (applePayLineItems.length > 1) {
 	lineItemsArray.push(pkSummaryItem);
     });
 
-    let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
-    lineItemsArray.push(pkSummaryTotalItem);
-} else {
-    // If you don't want an itemized Apple Pay prompt
-    let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
-    lineItemsArray.push(pkSummaryTotalItem);
+
+// Summary item, we will append this to the end of the array
+let totalLineItemLabel = "Company Name" // Typically the company name
+let totalPrice = 0.02;
+
+let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
+
+lineItemsArray.push(pkSummaryTotalItem);
 }
 
 let paymentSummaryArray = NSArray.alloc().initWithArray(lineItemsArray);
@@ -148,12 +156,54 @@ let opt: BrainTreeOptions = {
 };
 ```
 
-### Itemized Apple Pay
-![Itemized Apple Pay screenshot](/readme-images/itemized-apple-pay.png)
-
 
 ### Summary Apple Pay
 ![Summary Apple Pay screenshot](/readme-images/summary-apple-pay.png)
+
+If you want a summary prompt like above, do the following:
+
+```typescript
+import { ApplePayLineItem } from '../../src';
+
+let applePayPaymentRequestObj = PKPaymentRequest.alloc().init();
+
+let lineItemsArray = [];
+
+// Summary item, we will append this to the end of the array
+let totalLineItemLabel = "Company Name" // Typically the company name
+let totalPrice = 0.02;
+
+    // If you don't want an itemized Apple Pay prompt
+let pkSummaryTotalItem = PKPaymentSummaryItem.summaryItemWithLabelAmount(totalLineItemLabel, NSDecimalNumber.decimalNumberWithString(totalPrice.toString()));
+
+lineItemsArray.push(pkSummaryTotalItem);
+
+let paymentSummaryArray = NSArray.alloc().initWithArray(lineItemsArray);
+
+applePayPaymentRequestObj.paymentSummaryItems = paymentSummaryArray as NSArray<PKPaymentSummaryItem>;
+applePayPaymentRequestObj.countryCode = "US";
+applePayPaymentRequestObj.currencyCode = "USD";
+applePayPaymentRequestObj.merchantIdentifier = "YOUR_MERCHANT_IDENTIFIER";
+applePayPaymentRequestObj.merchantCapabilities = PKMerchantCapability.Capability3DS;
+
+// Configure your allowed networks
+let networksArray = NSArray.alloc().initWithArray([
+    "AmEx",
+    "Discover",
+    "MasterCard",
+    "Visa",
+]);
+
+applePayPaymentRequestObj.supportedNetworks = networksArray as NSArray<string>;
+
+let opt: BrainTreeOptions = {
+    amount: "0.01", // This is ignored if Apple Pay is the selected payment method
+    collectDeviceData: false,
+    requestThreeDSecureVerification: true,
+    // Apple Pay payment request
+    applePayPaymentRequest: applePayPaymentRequestObj,
+};
+```
 
 
 ## Setup Google Pay
