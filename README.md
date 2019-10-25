@@ -91,7 +91,7 @@ __Note:__ The apple pay prompt will make the last item in the `paymentSummaryIte
 If you want an itemized prompt like above, do the following:
 
 ```typescript
-import { ApplePayLineItem } from '../../src';
+import { Braintree, BrainTreeOptions, ApplePayLineItem } from 'nativescript-braintree';
 
 let applePayPaymentRequestObj = PKPaymentRequest.alloc().init();
 
@@ -155,7 +155,7 @@ let opt: BrainTreeOptions = {
 If you want a summary prompt like above, do the following:
 
 ```typescript
-import { ApplePayLineItem } from '../../src';
+import { Braintree, BrainTreeOptions, ApplePayLineItem } from 'nativescript-braintree';
 
 let applePayPaymentRequestObj = PKPaymentRequest.alloc().init();
 
