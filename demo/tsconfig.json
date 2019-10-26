@@ -36,6 +36,7 @@
     ],
     "exclude": [
         "../src/node_modules",
+        "../src/typings",
         "node_modules",
         "platforms"
     ],

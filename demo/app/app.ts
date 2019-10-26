@@ -5,4 +5,4 @@ if (application.ios) {
     setupBraintreeAppDeligate("org.nativescript.demo.payments");
 }
 
-application.start({ moduleName: "main-page" });
+application._start({ moduleName: "main-page" });

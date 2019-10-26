@@ -56,7 +56,7 @@
     },
     "linterOptions": {
         "exclude": [
-            "**/typingz/**",
+            "**/typings/**",
             "**/node_modules/**",
             "**/platforms/**"
         ]
