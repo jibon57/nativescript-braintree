@@ -12,12 +12,11 @@ export class HelloWorldModel extends Observable {
 
     public brainTreePayment() {
 
-
-
         let opts: BrainTreeOptions = {
             amount: "0.01",
             collectDeviceData: false,
             requestThreeDSecureVerification: true,
+            enableGooglePay: true,
             // Apple Pay payment request
             currencyCode: "USD"
         };

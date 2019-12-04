@@ -3,9 +3,10 @@ import * as app from 'tns-core-modules/application';
 
 declare const com;
 const DropInRequest = com.braintreepayments.api.dropin.DropInRequest;
-const GooglePaymentRequest = com.braintreepayments.api.models.GooglePaymentRequest;
-const TransactionInfo = com.google.android.gms.wallet.TransactionInfo;
-const WalletConstants = com.google.android.gms.wallet.WalletConstants;
+
+export function setupBraintreeAppDeligate(urlScheme) {
+    // to avoid error
+}
 
 export class Braintree extends Observable {
 
@@ -49,7 +50,10 @@ export class Braintree extends Observable {
             requestThreeDSecureVerificationMethod.invoke(dropInRequest, [true]);
         }
 
-        t.enableGooglePay(dropInRequest, options);
+        if (options.enableGooglePay) {
+            t.enableGooglePay(dropInRequest, options);
+        }
+
         clientTokenMethod.invoke(dropInRequest, [token]);
         let dIRIntent = getIntentMethod.invoke(dropInRequest, [activity]);
         this.callIntent(dIRIntent);
@@ -136,6 +140,10 @@ export class Braintree extends Observable {
 
     private enableGooglePay(dropInRequest, options: BrainTreeOptions): void {
 
+        const GooglePaymentRequest = com.braintreepayments.api.models.GooglePaymentRequest;
+        const TransactionInfo = com.google.android.gms.wallet.TransactionInfo;
+        const WalletConstants = com.google.android.gms.wallet.WalletConstants;
+
         let googlePaymentRequest = new GooglePaymentRequest()
             .transactionInfo(TransactionInfo.newBuilder()
                 .setTotalPrice(options.amount)
@@ -154,6 +162,7 @@ export interface BrainTreeOptions {
     collectDeviceData?: boolean;
     requestThreeDSecureVerification?: boolean;
     // Required for google pay
+    enableGooglePay?: boolean;
     currencyCode?: string;
 }
 

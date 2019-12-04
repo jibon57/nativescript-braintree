@@ -27,6 +27,7 @@ export interface BrainTreeOptions {
   /**
     * currencyCode is required for Google Pay
     */
+  enableGooglePay?: boolean;
   currencyCode?: string;
 }
 

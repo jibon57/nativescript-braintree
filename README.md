@@ -45,7 +45,7 @@ import { Braintree, BrainTreeOptions } from 'nativescript-braintree';
 let opts :BrainTreeOptions = {
   amount: "10.0",
   collectDeviceData: true,
-  requestThreeDSecureVerification: false,
+  requestThreeDSecureVerification: false
 }
 
 let token = token; //Get the token from server. https://developers.braintreepayments.com/start/hello-server/php
@@ -215,6 +215,7 @@ let opts: BrainTreeOptions = {
             amount: "0.01",
             collectDeviceData: false,
             requestThreeDSecureVerification: true,
+            enableGooglePay: true, // need to do additional setup for android. Please check demo project. Details: https://developers.braintreepayments.com/guides/google-pay/client-side/android/v3#add-google-play-services-wallet
             currencyCode: "USD"
         };
 ```
