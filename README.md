@@ -257,6 +257,9 @@ https://github.com/jibon57/nativescript-braintree/blob/master/demo/app/App_Resou
 
 ref: https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4
 
+## Using 3D Secure
+In order to use 3D Secure payments which is required to satisfy **PSD2 Strong Consumer Authentication (SCA)** compliance requirements you should set `requestThreeDSecureVerification: true` in your options. Also it is required to set an amount.
+
 ## Credits
 
 Special thanks to @Pip3r4o, @TylerBlakeLOU, @SamGosman

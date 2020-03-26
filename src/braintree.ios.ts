@@ -32,8 +32,12 @@ export class Braintree extends Observable {
         if (options.collectDeviceData) {
             request.collectDeviceData = true;
         }
-        if (options.requestThreeDSecureVerification) {
+        if (options.requestThreeDSecureVerification && options.amount) {
+            let threeDSecureRequest = BTThreeDSecureRequest.alloc().init();
+            threeDSecureRequest.amount = options.amount;
+            threeDSecureRequest.versionRequested = BTThreeDSecureVersion.Version2;
             request.threeDSecureVerification = true;
+            request.threeDSecureRequest = threeDSecureRequest;
         }
         let dropIn = BTDropInController.alloc().initWithAuthorizationRequestHandler(token, request, (controller, result, error) => {
             if (error !== null) {
