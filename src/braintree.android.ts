@@ -45,9 +45,15 @@ export class Braintree extends Observable {
             collectDeviceDataMethod.invoke(dropInRequest, [true]);
         }
 
-        if (options.requestThreeDSecureVerification) {
-            let requestThreeDSecureVerificationMethod = dropInRequest.getClass().getMethod("requestThreeDSecureVerification", [booleanType]);
-            requestThreeDSecureVerificationMethod.invoke(dropInRequest, [true]);
+        if (options.requestThreeDSecureVerification && options.amount) {
+            const ThreeDSecureRequest = com.braintreepayments.api.dropin.ThreeDSecureRequest;
+            let threeDSecureRequest = new ThreeDSecureRequest();
+            threeDSecureRequest.amount = options.amount;
+            threeDSecureRequest.versionRequested = ThreeDSecureRequest.VERSION_2;
+
+            dropInRequest
+                .requestThreeDSecureVerification(true)
+                .threeDSecureRequest(threeDSecureRequest);
         }
 
         if (options.enableGooglePay) {
