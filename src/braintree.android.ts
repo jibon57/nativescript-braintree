@@ -37,16 +37,12 @@ export class Braintree extends Observable {
 
         let clientTokenMethod = dropInRequest.getClass().getMethod("clientToken", [java.lang.String.class]);
 
-        let isAndroidPayEnabled = dropInRequest.getClass().getMethod("isAndroidPayEnabled", []);
-        let booleanType = isAndroidPayEnabled.getReturnType();
-
         if (options.collectDeviceData) {
-            let collectDeviceDataMethod = dropInRequest.getClass().getMethod("collectDeviceData", [booleanType]);
-            collectDeviceDataMethod.invoke(dropInRequest, [true]);
+            dropInRequest.collectDeviceData(true);
         }
 
         if (options.requestThreeDSecureVerification && options.amount) {
-            const ThreeDSecureRequest = com.braintreepayments.api.dropin.ThreeDSecureRequest;
+            const ThreeDSecureRequest = com.braintreepayments.api.models.ThreeDSecureRequest;
             let threeDSecureRequest = new ThreeDSecureRequest();
             threeDSecureRequest.amount = options.amount;
             threeDSecureRequest.versionRequested = ThreeDSecureRequest.VERSION_2;
