@@ -1373,7 +1373,7 @@ declare class BTThreeDSecureRequest extends BTPaymentFlowRequest implements BTPa
 
 	additionalInformation: BTThreeDSecureAdditionalInformation;
 
-	amount: string;
+	amount: NSDecimalNumber;
 
 	billingAddress: BTThreeDSecurePostalAddress;
 
