@@ -1,7 +1,7 @@
 import { Observable } from 'tns-core-modules/data/observable';
 import { BrainTreeOptions } from '.';
 const setupAppDeligate = require('./getappdelegate').setupAppDeligate;
-declare const BTDropInRequest, BTDropInController, UIApplication, PPDataCollector;
+declare const BTDropInRequest, BTDropInController, BTThreeDSecureRequest, BTThreeDSecureVersion, UIApplication, PPDataCollector;
 
 export function setupBraintreeAppDeligate(urlScheme) {
     setupAppDeligate(urlScheme);
@@ -34,7 +34,7 @@ export class Braintree extends Observable {
         }
         if (options.requestThreeDSecureVerification && options.amount) {
             let threeDSecureRequest = BTThreeDSecureRequest.alloc().init();
-            threeDSecureRequest.amount = options.amount;
+            threeDSecureRequest.amount = NSDecimalNumber.decimalNumberWithString(options.amount);
             threeDSecureRequest.versionRequested = BTThreeDSecureVersion.Version2;
             request.threeDSecureVerification = true;
             request.threeDSecureRequest = threeDSecureRequest;

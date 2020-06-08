@@ -14,7 +14,7 @@ export class HelloWorldModel extends Observable {
 
         let opts: BrainTreeOptions = {
             amount: "0.01",
-            collectDeviceData: false,
+            collectDeviceData: true,
             requestThreeDSecureVerification: true,
             enableGooglePay: true,
             // Apple Pay payment request
