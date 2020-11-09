@@ -1,4 +1,5 @@
-import * as application from 'tns-core-modules/application';
+import {Application} from "@nativescript/core";
+
 declare const BTAppSwitch;
 
 /**
@@ -19,7 +20,7 @@ declare const BTAppSwitch;
 
 export function getAppDelegate() {
     // Play nice with other plugins by not completely ignoring anything already added to the appdelegate
-    if (application.ios.delegate === undefined) {
+    if (Application.ios.delegate === undefined) {
         class UIApplicationDelegateImpl extends UIResponder implements UIApplicationDelegate {
             public static ObjCProtocols = [UIApplicationDelegate];
 
@@ -28,10 +29,10 @@ export function getAppDelegate() {
             }
         }
 
-        application.ios.delegate = UIApplicationDelegateImpl;
+        Application.ios.delegate = UIApplicationDelegateImpl;
     }
 
-    return application.ios.delegate;
+    return Application.ios.delegate;
 }
 
 /**

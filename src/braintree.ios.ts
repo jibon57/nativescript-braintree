@@ -1,5 +1,6 @@
-import { Observable } from 'tns-core-modules/data/observable';
+import {Observable} from "@nativescript/core";
 import { BrainTreeOptions } from '.';
+
 const setupAppDeligate = require('./getappdelegate').setupAppDeligate;
 declare const BTDropInRequest, BTDropInController, BTThreeDSecureRequest, BTThreeDSecureVersion, UIApplication, PPDataCollector;
 

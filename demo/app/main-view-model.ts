@@ -1,8 +1,5 @@
-import { Observable } from 'tns-core-modules/data/observable';
-import { Braintree, BrainTreeOptions } from 'nativescript-braintree';
-import { ApplePayLineItem } from '../../src';
-const httpModule = require("tns-core-modules/http");
-import * as applicationModule from "tns-core-modules/application";
+import {isIOS, Observable} from "@nativescript/core";
+import { ApplePayLineItem, Braintree, BrainTreeOptions } from 'nativescript-braintree';
 
 export class HelloWorldModel extends Observable {
 
@@ -21,7 +18,7 @@ export class HelloWorldModel extends Observable {
             currencyCode: "USD"
         };
 
-        if (applicationModule.ios) {
+        if (isIOS) {
             // If doing ApplePay
             let applePayLineItems = this.getApplePayLineItemsSummary();
 
@@ -51,8 +48,6 @@ export class HelloWorldModel extends Observable {
             let output = res.object.get("output");
             console.dir(output);
         });
-
-
     }
 
 

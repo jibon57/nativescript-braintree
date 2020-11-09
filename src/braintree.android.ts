@@ -1,5 +1,4 @@
-import { Observable } from 'tns-core-modules/data/observable';
-import * as app from 'tns-core-modules/application';
+import {AndroidApplication, Application, Observable} from "@nativescript/core";
 
 declare const com;
 const DropInRequest = com.braintreepayments.api.dropin.DropInRequest;
@@ -25,7 +24,7 @@ export class Braintree extends Observable {
     public startPayment(token: any, options: BrainTreeOptions) {
 
         let t = this;
-        let activity = app.android.foregroundActivity || app.android.startActivity;
+        let activity = Application.android.foregroundActivity || Application.android.startActivity;
 
         let dropInRequest = new DropInRequest();
 
@@ -63,11 +62,11 @@ export class Braintree extends Observable {
 
     private callIntent(intent) {
         let t = this;
-        app.android.foregroundActivity.startActivityForResult(intent, 4949);
-        app.android.on(app.AndroidApplication.activityResultEvent, onResult);
+        Application.android.foregroundActivity.startActivityForResult(intent, 4949);
+        Application.android.on(AndroidApplication.activityResultEvent, onResult);
 
         function onResult(args) {
-            app.android.off(app.AndroidApplication.activityResultEvent, onResult);
+            Application.android.off(AndroidApplication.activityResultEvent, onResult);
             t.handleResults(args.requestCode, args.resultCode, args.intent);
         }
 

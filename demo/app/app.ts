@@ -1,8 +1,8 @@
-﻿import * as application from 'tns-core-modules/application';
-import { setupBraintreeAppDeligate } from "nativescript-braintree";
+﻿import { setupBraintreeAppDeligate } from "nativescript-braintree";
+import {Application, isIOS} from "@nativescript/core";
 
-if (application.ios) {
+if (isIOS) {
     setupBraintreeAppDeligate("org.nativescript.demo.payments");
 }
 
-application._start({ moduleName: "main-page" });
+Application.run({ moduleName: "main-page" });
