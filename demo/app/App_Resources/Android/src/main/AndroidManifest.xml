@@ -25,6 +25,8 @@
 		android:label="@string/app_name"
 		android:theme="@style/AppTheme">
 
+		<meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+
 		<activity
 			android:name="com.tns.NativeScriptActivity"
 			android:label="@string/title_activity_kimera"
@@ -32,7 +34,6 @@
 			android:theme="@style/LaunchScreenTheme">
 
 			<meta-data android:name="SET_THEME_ON_LAUNCH" android:resource="@style/AppTheme" />
-			<meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>	
 
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
