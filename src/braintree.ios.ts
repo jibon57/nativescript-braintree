@@ -163,7 +163,6 @@ export class Braintree extends Observable {
     }
 }
 
-@NativeClass
 export class PKPaymentAuthorizationViewControllerDelegateImpl extends NSObject implements PKPaymentAuthorizationViewControllerDelegate {
     public static ObjCProtocols = [PKPaymentAuthorizationViewControllerDelegate];
     applePayClient: BTApplePayClient;
