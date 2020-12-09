@@ -21,6 +21,8 @@ declare const BTAppSwitch;
 export function getAppDelegate() {
     // Play nice with other plugins by not completely ignoring anything already added to the appdelegate
     if (Application.ios.delegate === undefined) {
+
+        @NativeClass()
         class UIApplicationDelegateImpl extends UIResponder implements UIApplicationDelegate {
             public static ObjCProtocols = [UIApplicationDelegate];
 
