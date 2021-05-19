@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@nativescript/core": "^7.0.13",
+    "@nativescript/core": "^7.3.0",
     "nativescript-braintree": "file:../src",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-unit-test-runner": "0.7.0"
@@ -8,8 +8,8 @@
   "devDependencies": {
     "@nativescript/android": "7.0.1",
     "@nativescript/ios": "7.0.0",
-    "@nativescript/types": "^7.0.4",
-    "@nativescript/webpack": "^3.0.8",
+    "@nativescript/types": "^7.3.0",
+    "@nativescript/webpack": "^4.1.0",
     "jasmine-core": "^2.5.2",
     "karma": "4.1.0",
     "karma-jasmine": "2.0.1",
