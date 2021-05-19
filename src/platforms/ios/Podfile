@@ -1,5 +1,7 @@
-pod 'BraintreeDropIn', '7.4.0'
+platform :ios, '12.0'
+
+pod 'Braintree', '4.36.1', :inhibit_warnings => true
+pod 'BraintreeDropIn', '8.1.2', :inhibit_warnings => true
 pod 'Braintree/Apple-Pay'
 pod 'Braintree/PayPal'
-pod 'Braintree/Venmo'
 pod 'CardIO'
