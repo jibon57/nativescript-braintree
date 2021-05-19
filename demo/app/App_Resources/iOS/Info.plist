@@ -29,6 +29,8 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+		    <key>CFBundleTypeRole</key>
+            <string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>org.nativescript.demo.payments</string>
