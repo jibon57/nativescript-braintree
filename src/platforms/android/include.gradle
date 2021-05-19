@@ -1,7 +1,7 @@
 /* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
 
 android {
-	
+
 }
 repositories {
   maven {
@@ -16,9 +16,14 @@ repositories {
   }
 }
 dependencies {
-  implementation "com.braintreepayments.api:drop-in:4.5.0"
-  implementation 'io.card:android-sdk:5.+'
-  
+  implementation 'com.braintreepayments.api:drop-in:5.2.1'
+      implementation 'com.braintreepayments.api:google-payment:3.5.0'
+
+      // Google dependencies
+      implementation 'com.google.android.gms:play-services-wallet:18.1.2'
+
+      implementation 'io.card:android-sdk:5.5.1'
+
   components.all {
     allVariants {
       withDependencies { deps ->
