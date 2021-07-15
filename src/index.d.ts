@@ -1,4 +1,4 @@
-import {Observable} from "@nativescript/core";
+import { Observable } from "@nativescript/core";
 
 export declare function setupBraintreeAppDeligate(urlScheme: any): void;
 
@@ -29,6 +29,7 @@ export interface BrainTreeOptions {
     */
   enableGooglePay?: boolean;
   currencyCode?: string;
+  vaultManager?: boolean;
 }
 
 export interface ApplePayLineItem {
