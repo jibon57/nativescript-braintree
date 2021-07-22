@@ -1,4 +1,4 @@
-import {AndroidApplication, Application, Observable} from "@nativescript/core";
+import { AndroidApplication, Application, Observable } from "@nativescript/core";
 
 declare const com;
 const DropInRequest = com.braintreepayments.api.dropin.DropInRequest;
@@ -27,6 +27,9 @@ export class Braintree extends Observable {
         let activity = Application.android.foregroundActivity || Application.android.startActivity;
 
         let dropInRequest = new DropInRequest();
+        if (dropInRequest.vaultManager) {
+            dropInRequest.vaultManager(options.vaultManager);
+        }
 
         if (options.amount) {
             dropInRequest.amount(options.amount);
@@ -165,5 +168,6 @@ export interface BrainTreeOptions {
     // Required for google pay
     enableGooglePay?: boolean;
     currencyCode?: string;
+    vaultManager?: boolean;
 }
 

@@ -1,4 +1,4 @@
-import {Observable} from "@nativescript/core";
+import { Observable } from "@nativescript/core";
 import { BrainTreeOptions } from '.';
 
 const setupAppDeligate = require('./getappdelegate').setupAppDeligate;
@@ -26,6 +26,9 @@ export class Braintree extends Observable {
     public startPayment(token: any, options: BrainTreeOptions) {
 
         let request = BTDropInRequest.alloc().init();
+        if (request.vaultManager) {
+            request.vaultManager(options.vaultManager);
+        }
 
         if (options.amount) {
             request.amount = options.amount;
