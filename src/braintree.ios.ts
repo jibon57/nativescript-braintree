@@ -26,8 +26,8 @@ export class Braintree extends Observable {
     public startPayment(token: any, options: BrainTreeOptions) {
 
         let request = BTDropInRequest.alloc().init();
-        if (request.vaultManager) {
-            request.vaultManager(options.vaultManager);
+        if (options.vaultManager) {
+            request.vaultManager = options.vaultManager;
         }
 
         if (options.amount) {
