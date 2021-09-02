@@ -27,7 +27,7 @@ export class Braintree extends Observable {
         let activity = Application.android.foregroundActivity || Application.android.startActivity;
 
         let dropInRequest = new DropInRequest();
-        if (dropInRequest.vaultManager) {
+        if (options.vaultManager) {
             dropInRequest.vaultManager(options.vaultManager);
         }
 
