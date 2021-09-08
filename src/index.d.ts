@@ -28,6 +28,7 @@ export interface BrainTreeOptions {
     * currencyCode is required for Google Pay
     */
   enableGooglePay?: boolean;
+  googleMerchantId?: string;
   currencyCode?: string;
   vaultManager?: boolean;
 }
