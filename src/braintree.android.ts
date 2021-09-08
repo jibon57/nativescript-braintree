@@ -155,6 +155,9 @@ export class Braintree extends Observable {
                 .setCurrencyCode(options.currencyCode)
                 .build())
             .billingAddressRequired(true);
+        if (options.googleMerchantId) {
+            googlePaymentRequest.googleMerchantId(options.googleMerchantId);
+        }
 
         dropInRequest.googlePaymentRequest(googlePaymentRequest);
     }
@@ -167,6 +170,7 @@ export interface BrainTreeOptions {
     requestThreeDSecureVerification?: boolean;
     // Required for google pay
     enableGooglePay?: boolean;
+    googleMerchantId?: string;
     currencyCode?: string;
     vaultManager?: boolean;
 }

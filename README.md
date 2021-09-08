@@ -222,9 +222,12 @@ let opts: BrainTreeOptions = {
             collectDeviceData: false,
             requestThreeDSecureVerification: true,
             enableGooglePay: true, // need to do additional setup for android. Please check demo project. Details: https://developers.braintreepayments.com/guides/google-pay/client-side/android/v3#add-google-play-services-wallet
+            googleMerchantId: "AAAAAAAAAA", //Google Merchant Id for production environment
             currencyCode: "USD"
         };
 ```
+
+Google pay on production environment works only with a package signed with your release keys
 
 ## Setup iOS paypal & Venmo.
 
